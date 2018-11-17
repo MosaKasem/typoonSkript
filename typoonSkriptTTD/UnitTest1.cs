@@ -1,19 +1,60 @@
 using System;
 using Domain; // use namespace to reference!
 using Xunit;
+using Moq;
 
 namespace typoonSkriptTTD
 {
     public class UnitTest1
     {
-        [Fact]
-        public void Test1()
+
+/*         [Theory]
+        [InlineData]
+        [Fact] */
+/*         [Fact]
+        public void tryMock()
         {
-            MaxAge maxAge = new MaxAge(17);
-            CheckAge checkAge = new CheckAge();
-            var actual = checkAge.AgeChecker(17);
-            var exception = new Exception();
-            Assert.Throws(new Exception(exception));
+            var dataSource = new Mock<()>();
+        } */
+        [Fact]
+        public void testCalculatorAdd()
+        {
+
+            double expected = 5;
+            var sut = new Calculator();
+            double actual = sut.Add(2,5);
+            
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void testCalculatorSubtract()
+        {
+
+            double expected = 5;
+            var sut = new Calculator();
+            double actual = sut.Subtract(10,5);
+            
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void testCalculatorMultiply()
+        {
+
+            double expected = 20;
+            var sut = new Calculator();
+            double actual = sut.Multiply(10,2);
+            
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void testCalculatorDivide()
+        {
+
+            double expected = 5;
+            var sut = new Calculator();
+            double actual = sut.Divide(2,5);
+            
+            Assert.Equal(expected, actual);
         }
     }
 }
