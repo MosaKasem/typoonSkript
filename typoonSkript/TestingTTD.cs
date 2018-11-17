@@ -7,7 +7,26 @@ using Moq;
 
 namespace Domain
 {
-    public class Deck
+    public class Calculator
+    {
+        public double Add(double x, double y)
+        {
+            return x + y;
+        }
+        public double Subtract(double x, double y)
+        {
+            return x - y;
+        }
+        public double Multiply(double x, double y)
+        {
+            return x * y;
+        }
+        public double Divide(double x, double y)
+        {
+            return x / y;
+        }
+    }
+/*     public class Deck
     {
         private List<Card> cards;
         private List<Card> discard = new List<Card>();
@@ -23,9 +42,10 @@ namespace Domain
                         .ToList();
             }
         }
-    }
+    } */
 
-    public class Card
+
+/*     public class Card
     {
         private int rank;
         private string suit;
@@ -40,5 +60,5 @@ namespace Domain
             this.rank = rank;
             this.suit = suit;
         }
-    }
+    } */
 }

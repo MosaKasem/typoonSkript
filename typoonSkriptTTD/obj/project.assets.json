@@ -5983,11 +5983,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Mosa\\2dv610\\typoonSkriptTTD\\typoonSkriptTTD.csproj",
+      "projectUniqueName": "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkriptTTD\\typoonSkriptTTD.csproj",
       "projectName": "typoonSkriptTTD",
-      "projectPath": "c:\\Users\\Mosa\\2dv610\\typoonSkriptTTD\\typoonSkriptTTD.csproj",
+      "projectPath": "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkriptTTD\\typoonSkriptTTD.csproj",
       "packagesPath": "C:\\Users\\Mosa\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Mosa\\2dv610\\typoonSkriptTTD\\obj\\",
+      "outputPath": "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkriptTTD\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6006,8 +6006,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "c:\\Users\\Mosa\\2dv610\\typoonSkript\\typoonSkript.csproj": {
-              "projectPath": "c:\\Users\\Mosa\\2dv610\\typoonSkript\\typoonSkript.csproj"
+            "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\typoonSkript.csproj": {
+              "projectPath": "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\typoonSkript.csproj"
             }
           }
         }

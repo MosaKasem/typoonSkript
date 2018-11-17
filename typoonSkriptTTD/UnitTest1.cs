@@ -9,8 +9,11 @@ namespace typoonSkriptTTD
         [Fact]
         public void Test1()
         {
-            Deck deck = new Deck();
-            Assert.Equals(52);
+            MaxAge maxAge = new MaxAge(17);
+            CheckAge checkAge = new CheckAge();
+            var actual = checkAge.AgeChecker(17);
+            var exception = new Exception();
+            Assert.Throws(new Exception(exception));
         }
     }
 }
