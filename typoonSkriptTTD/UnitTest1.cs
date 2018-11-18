@@ -8,15 +8,21 @@ namespace typoonSkriptTTD
     public class UnitTest1
     {
 
-/*         [Theory]
-        [InlineData]
-        [Fact] */
-/*         [Fact]
-        public void tryMock()
+        [Theory]
+        [InlineData(5.5, 5.5, 11.0)]
+        [InlineData(25.0, 25.0, 50.0)]
+        [InlineData(double.MaxValue, 5, double.MaxValue)]
+        public void Values_Should_Calculate_Add(double x, double y, double expected)
         {
-            var dataSource = new Mock<()>();
-        } */
-        [Fact]
+            // actual
+            var sut = new Calculator();
+            var actual = sut.Add(x, y);
+
+            // assert
+            Assert.Equal(expected, actual);
+        }
+
+/*         [Fact]
         public void CalculatorAdd()
         {
 
@@ -55,6 +61,6 @@ namespace typoonSkriptTTD
             double actual = sut.Divide(5.0, 2.0);
             
             Assert.Equal(expected, actual);
-        }
+        } */
     }
 }
