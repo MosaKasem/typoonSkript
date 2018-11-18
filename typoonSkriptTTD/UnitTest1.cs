@@ -17,42 +17,42 @@ namespace typoonSkriptTTD
             var dataSource = new Mock<()>();
         } */
         [Fact]
-        public void testCalculatorAdd()
+        public void CalculatorAdd()
         {
 
             double expected = 5;
             var sut = new Calculator();
-            double actual = sut.Add(2,5);
+            double actual = sut.Add(2, 3);
             
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void testCalculatorSubtract()
+        public void CalculatorSubtract()
         {
 
             double expected = 5;
             var sut = new Calculator();
-            double actual = sut.Subtract(10,5);
+            double actual = sut.Subtract(10, 5);
             
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void testCalculatorMultiply()
+        public void CalculatorMultiply()
         {
 
             double expected = 20;
             var sut = new Calculator();
-            double actual = sut.Multiply(10,2);
+            double actual = sut.Multiply(10, 2);
             
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void testCalculatorDivide()
+        public void CalculatorDivide()
         {
 
-            double expected = 5;
+            double expected = 2.5;
             var sut = new Calculator();
-            double actual = sut.Divide(2,5);
+            double actual = sut.Divide(5.0, 2.0);
             
             Assert.Equal(expected, actual);
         }
