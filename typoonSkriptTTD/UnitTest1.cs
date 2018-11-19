@@ -18,11 +18,9 @@ namespace typoonSkriptTTD
         public void Values_Should_Calculate_Add(double x, double y, double expected)
         {
             var mochObj = new Mock<Calculator>();
-
             // actual
             var sut = new Calculator();
             var actual = sut.Add(x, y);
-
             // assert
             Assert.Equal(expected, actual);
         }
@@ -43,6 +41,16 @@ namespace typoonSkriptTTD
         {
             var sut = new Calculator();
             var actual = sut.Multiply(x, y);
+
+            Assert.Equal(expected, actual);
+        }
+        [Theory]
+        [InlineData(5, 5, 3125)]
+        [InlineData(5, 5, 9765625)]
+        public void Value_Should_Calculate_Elevated(double x, double y, double expected)
+        {
+            var sut = new Calculator();
+            var actual = sut.Elevate(x, y);
 
             Assert.Equal(expected, actual);
         }

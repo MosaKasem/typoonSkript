@@ -6,7 +6,7 @@ namespace Domain
     {
         static void Main(string[] args)
         {
-            var pissBook = new CheckAge();
+            var calc = new Calculator();
         }
     }
 }
