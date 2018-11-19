@@ -46,7 +46,7 @@ namespace typoonSkriptTTD
         }
         [Theory]
         [InlineData(5, 5, 3125)]
-        [InlineData(5, 5, 9765625)]
+        [InlineData(5, 10, 9765625)]
         public void Value_Should_Calculate_Elevated(double x, double y, double expected)
         {
             var sut = new Calculator();
