@@ -38,7 +38,7 @@ namespace typoonSkriptTTD
         }
         [Theory]
         [InlineData(50, 2, 100)]
-        [InlineData(50, 2, 200)]
+        [InlineData(50, 4, 200)]
         public void Values_Should_Calculate_Multiply(double x, double y, double expected)
         {
             var sut = new Calculator();
