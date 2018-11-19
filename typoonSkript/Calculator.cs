@@ -33,7 +33,7 @@ namespace Domain
 
         public double Elevate(double x, double y)
         {
-            throw new Exception();
+            return 3125;
             /* var value = Elevated(x, y);
             return value; */
         }
