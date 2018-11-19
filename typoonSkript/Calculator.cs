@@ -26,16 +26,17 @@ namespace Domain
             if (y != 0)
             {
                 return x / y;
-            } else {
+            }
+            else
+            {
                 return 0;
             }
         }
 
         public double Elevate(double x, double y)
         {
-            return 3125;
-            /* var value = Elevated(x, y);
-            return value; */
+            var value = Elevated(x, y);
+            return value;
         }
         public double Elevated(double x, double y)
         {
