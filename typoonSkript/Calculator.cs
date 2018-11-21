@@ -9,6 +9,13 @@ namespace Domain
 {
     public class Calculator : ICalculator
     {
+        private double x;
+        private double y;
+        public Calculator(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
         public double Add(double x, double y)
         {
             return x + y;
@@ -33,14 +40,15 @@ namespace Domain
             }
         }
 
-        public double Elevate(ICalculator values)
+        public double Elevate(ICalculator values, double x, double y)
         {
-            return 25;
+            var value = values.Elevated(x, y);
+            return value;
         }
-/*         public double Elevated(double x, double y)
+        public double Elevated(double x, double y)
         {
             return Math.Pow(x, y);
-        } */
+        }
     }
 
 }
