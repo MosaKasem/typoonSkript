@@ -8,15 +8,18 @@ namespace typoonSkriptTTD
 
     public class UnitTest1
     {
-        [Fact]
-        public void Input_Validator_Make_Sure_Its_Numeric()
+        [Theory]
+        [InlineData("50", 50)]
+        [InlineData("25", 25)]
+        [InlineData("25", 25)]
+        [InlineData("250000000000", 250000000000)]
+        public void Input_Validator_Make_Sure_Its_Numeric(string value, double expected)
         {
         //Given
         var sut = new Input();
         
         //When
-        var actual = sut.UserInput("25");
-        double expected = 25;
+        var actual = sut.UserInput(value);
         //Then
         Assert.Equal(expected, actual);
         }

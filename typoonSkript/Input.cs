@@ -10,7 +10,8 @@ namespace Domain
     {
         public double UserInput(string input)
         {
-            return 25;
+            if (!double.TryParse(input, out double convertedNumber)) throw new ArgumentException("Must be a value");
+            return convertedNumber;
         }
     }
 }
