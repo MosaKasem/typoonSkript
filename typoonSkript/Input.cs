@@ -6,8 +6,11 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-    public interface CalculateMethod
+    public class Input
     {
-
+        public double UserInput(string input)
+        {
+            throw new Exception();
+        }
     }
 }

@@ -7,16 +7,9 @@ using Moq;
 
 namespace Domain
 {
-    public class Calculator : CalculateMethod
+    public class Calculator
     {
-        private double x;
-        private double y;
-        public Calculator(double x, double y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-        public double Add(double x, double y)
+/*         public double Add(double x, double y)
         {
             return x + y;
         }
@@ -48,7 +41,7 @@ namespace Domain
         public double Elevated(double x, double y)
         {
             return Math.Pow(x, y);
-        }
+        } */
     }
 
 }
