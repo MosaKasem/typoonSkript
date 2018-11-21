@@ -49,7 +49,7 @@ namespace typoonSkriptTTD
         public void Value_Should_Calculate_Elevated(double x, double y, double expected)
         {
             var iCalculatorMock = new Mock<ICalculator>();
-            // iCalculatorMock.Setup(s => s.Elevated(x, y)).Returns(() => Math.Pow(x, y));
+            iCalculatorMock.Setup(s => s.Elevated(x, y)).Returns(() => Math.Pow(x, y));
             var sut = new Calculator(x, y);
             var actual = sut.Elevate(iCalculatorMock.Object, x, y);
             // REFACTOR THIS..
