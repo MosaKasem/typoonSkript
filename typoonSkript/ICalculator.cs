@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-    interface ICalculator
+    public interface ICalculator
     {
         double Elevated(double x, double y);
     }

@@ -17,7 +17,6 @@ namespace typoonSkriptTTD
         [InlineData(double.MaxValue, 5, double.MaxValue)]
         public void Values_Should_Calculate_Add(double x, double y, double expected)
         {
-            var mochObj = new Mock<Calculator>();
             // actual
             var sut = new Calculator();
             var actual = sut.Add(x, y);
@@ -49,10 +48,30 @@ namespace typoonSkriptTTD
         [InlineData(5, 10, 9765625)]
         public void Value_Should_Calculate_Elevated(double x, double y, double expected)
         {
+            var iCalculatorMock = new Mock<ICalculator>();
+            iCalculatorMock.Setup(s => s.Elevated(x, y)).Returns(() => Math.Pow(x, y));
             var sut = new Calculator();
+            var actual = sut.Elevate(iCalculatorMock.Object);
+            
+
+            // var mochObj = new Mock<Random>();
+            // var randomNumber = mochObj.Setup(r => r.Next(1, 100)).Returns(2);
+            
+/*             var sut = new Calculator();
             var actual = sut.Elevate(x, y);
 
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual); */
+        }
+        [Fact]
+        public void TestName()
+        {
+        var expected = 10;
+        
+        //When
+        var actual = 5;
+        
+        //Then
+        Assert.Equal(expected, actual);
         }
     }
 }

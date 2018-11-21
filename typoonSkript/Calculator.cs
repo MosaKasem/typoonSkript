@@ -33,15 +33,14 @@ namespace Domain
             }
         }
 
-        public double Elevate(double x, double y)
+        public double Elevate(ICalculator values)
         {
-            var value = Elevated(x, y);
-            return value;
+            return 25;
         }
-        public double Elevated(double x, double y)
+/*         public double Elevated(double x, double y)
         {
             return Math.Pow(x, y);
-        }
+        } */
     }
 
 }
