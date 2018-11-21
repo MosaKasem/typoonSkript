@@ -9,11 +9,20 @@ namespace Domain
 {
     public class Calculator
     {
-/*         public double Add(double x, double y)
+        public double SimpleCalculator(string operation, double x, double y)
         {
-            return x + y;
+            double result;
+            if (operation == "+") {
+                throw new Exception();
+            }
+            return 0;
         }
-        public double Subtract(double x, double y)
+        public double Add(double x, double y)
+        {
+            throw new Exception();
+            // return x + y;
+        }
+/*         public double Subtract(double x, double y)
         {
             return x - y;
         }

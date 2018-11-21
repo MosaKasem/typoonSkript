@@ -11,18 +11,33 @@ namespace typoonSkriptTTD
         [Theory]
         [InlineData("50", 50)]
         [InlineData("25", 25)]
-        [InlineData("25", 25)]
+        [InlineData("-25", -25)]
         [InlineData("250000000000", 250000000000)]
         public void Input_Validator_Make_Sure_Its_Numeric(string value, double expected)
         {
-        //Given
         var sut = new Input();
-        
-        //When
         var actual = sut.UserInput(value);
-        //Then
         Assert.Equal(expected, actual);
         }
+        [Theory]
+        [InlineData("+", 50, 50, 100)]
+        public void Calculator_Should_Return_Add(string operation, double x, double y, double expected)
+        {
+        var sut = new Calculator();
+        var actual = sut.SimpleCalculator(operation, x, y);
+        Assert.Equal(expected, actual);
+        }
+        // Fråga om detta I handledning, hur hantera man Exceptions..
+/*         [Theory]
+        [InlineData("JamesJohn", typeof(ArgumentException))]
+        public void Input_Validator_Make_Sure_Throw_Ex(string value, ArgumentException expected)
+        {
+        var sut = new Input();
+        var actual = sut.UserInput(value);
+        Exception ex = Assert.Throws<ArgumentException>(() => actual);
+        Assert.Equal(String.Format("Must be a numeric value"), ex.Message);
+        Assert.Throws<ArgumentException>(() => actual);
+        } */
         // [Fact]
         // public void ValueShouldAdd4And5() => Values_Should_Calculate_Add(4.0, 5.0, 9.0);
 
