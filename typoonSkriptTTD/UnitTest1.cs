@@ -11,7 +11,7 @@ namespace typoonSkriptTTD
         // [Fact]
         // public void ValueShouldAdd4And5() => Values_Should_Calculate_Add(4.0, 5.0, 9.0);
 
-        [Theory]
+/*         [Theory]
         [InlineData(5.5, 5.5, 11.0)]
         [InlineData(25.0, 25.0, 50.0)]
         [InlineData(double.MaxValue, 5, double.MaxValue)]
@@ -52,7 +52,7 @@ namespace typoonSkriptTTD
             iCalculatorMock.Setup(s => s.Elevated(x, y)).Returns(() => Math.Pow(x, y));
             var sut = new Calculator(x, y);
             var actual = sut.Elevate(iCalculatorMock.Object, x, y);
-            // REFACTOR THIS..
+
             Assert.Equal(expected, actual);
         }
         [Fact]
@@ -65,6 +65,6 @@ namespace typoonSkriptTTD
             //When
 
             //Then
-        }
+        } */
     }
 }

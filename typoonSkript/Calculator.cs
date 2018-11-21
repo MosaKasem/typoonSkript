@@ -7,7 +7,7 @@ using Moq;
 
 namespace Domain
 {
-    public class Calculator : ICalculator
+    public class Calculator : CalculateMethod
     {
         private double x;
         private double y;
