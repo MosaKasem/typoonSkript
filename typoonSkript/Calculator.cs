@@ -13,15 +13,14 @@ namespace Domain
         {
             double result;
             if (operation == "+") {
-                // throw new Exception();
-                return 100;
+                double value = Add(x, y);
+                return value;
             }
             return 0;
         }
         public double Add(double x, double y)
         {
-            throw new Exception();
-            // return x + y;
+            return x + y;
         }
 /*         public double Subtract(double x, double y)
         {
