@@ -10,7 +10,7 @@ namespace Domain
     {
         public double UserInput(string input)
         {
-            throw new Exception();
+            return 25;
         }
     }
 }
