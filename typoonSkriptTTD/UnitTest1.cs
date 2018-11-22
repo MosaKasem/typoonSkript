@@ -27,6 +27,14 @@ namespace typoonSkriptTTD
         var actual = sut.Add(x, y);
         Assert.Equal(expected, actual);
         }
+        [Theory]
+        [InlineData(50, -50, 0)]
+        public void Calculator_Should_Return_Subtract(double x, double y, double expected)
+        {
+        var sut = new Calculator();
+        var actual = sut.Subtract(x, y);
+        Assert.Equal(expected, actual);
+        }
         // Fråga om detta I handledning, hur hantera man Exceptions..
 /*         [Theory]
         [InlineData("JamesJohn", typeof(ArgumentException))]
