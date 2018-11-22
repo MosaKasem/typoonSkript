@@ -33,7 +33,7 @@ namespace Domain
         }
         public double Multiply(double x, double y)
         {
-            throw new Exception();
+            return 100.0;
             // return x * y;
         }/*
         public double Divide(double x, double y)
