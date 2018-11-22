@@ -9,12 +9,17 @@ namespace Domain
 {
     public class Calculator
     {
-        public double SimpleCalculator(string operation, double x, double y)
+        public double SimpleCalculator(double x, double y)
         {
+            Operation operation = GetInput();
             double result;
-            if (operation == "+") {
-                double value = Add(x, y);
-                return value;
+            if (operation == Operation.plus) {
+                result = Add(x, y);
+                return result;
+            }
+            if (operation == Operation.minus) {
+                result = Subtract(x, y);
+                return result;
             }
             return 0;
         }
@@ -22,11 +27,11 @@ namespace Domain
         {
             return x + y;
         }
-/*         public double Subtract(double x, double y)
+         public double Subtract(double x, double y)
         {
-            return x - y;
+            throw new Exception();
         }
-        public double Multiply(double x, double y)
+/*        public double Multiply(double x, double y)
         {
             return x * y;
         }
@@ -51,6 +56,22 @@ namespace Domain
         {
             return Math.Pow(x, y);
         } */
+        public Operation GetInput()
+        {
+            switch (System.Console.In.Read())
+            {
+                case '+':
+                return Operation.plus;
+                case '-':
+                return Operation.minus;
+                case '*':
+                return Operation.multiply;
+                case '/':
+                return Operation.divide;
+                default:
+                return Operation.Null;
+            }
+        }
     }
 
 }

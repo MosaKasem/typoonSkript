@@ -20,11 +20,11 @@ namespace typoonSkriptTTD
         Assert.Equal(expected, actual);
         }
         [Theory]
-        [InlineData("+", 50, 50, 100)]
-        public void Calculator_Should_Return_Add(string operation, double x, double y, double expected)
+        [InlineData(50, 50, 100)]
+        public void Calculator_Should_Return_Add(double x, double y, double expected)
         {
         var sut = new Calculator();
-        var actual = sut.SimpleCalculator(operation, x, y);
+        var actual = sut.Add(x, y);
         Assert.Equal(expected, actual);
         }
         // Fråga om detta I handledning, hur hantera man Exceptions..
