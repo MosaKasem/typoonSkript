@@ -29,7 +29,7 @@ namespace Domain
         }
          public double Subtract(double x, double y)
         {
-            return 0;
+            return x - y;
         }
 /*        public double Multiply(double x, double y)
         {

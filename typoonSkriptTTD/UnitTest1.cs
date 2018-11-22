@@ -28,7 +28,8 @@ namespace typoonSkriptTTD
         Assert.Equal(expected, actual);
         }
         [Theory]
-        [InlineData(50, -50, 0)]
+        [InlineData(50, -50, 100)]
+        [InlineData(50, -1000, 1050)]
         public void Calculator_Should_Return_Subtract(double x, double y, double expected)
         {
         var sut = new Calculator();
