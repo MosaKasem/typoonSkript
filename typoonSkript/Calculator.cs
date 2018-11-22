@@ -33,8 +33,7 @@ namespace Domain
         }
         public double Multiply(double x, double y)
         {
-            return 100.0;
-            // return x * y;
+            return x * y;
         }/*
         public double Divide(double x, double y)
         {
