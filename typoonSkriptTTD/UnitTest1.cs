@@ -8,6 +8,7 @@ namespace typoonSkriptTTD
 
     public class UnitTest1
     {
+
         [Theory]
         [InlineData("50", 50)]
         [InlineData("25", 25)]
@@ -19,6 +20,7 @@ namespace typoonSkriptTTD
             var actual = sut.UserInput(value);
             Assert.Equal(expected, actual);
         }
+
         [Theory]
         [InlineData(50, 50, 100)]
         [InlineData(50000, 50000, 100000)]
@@ -28,6 +30,7 @@ namespace typoonSkriptTTD
             var actual = sut.Add(x, y);
             Assert.Equal(expected, actual);
         }
+
         [Theory]
         [InlineData(50, -50, 100)]
         [InlineData(50, -1000, 1050)]
@@ -37,6 +40,7 @@ namespace typoonSkriptTTD
             var actual = sut.Subtract(x, y);
             Assert.Equal(expected, actual);
         }
+
         [Theory]
         [InlineData(2.5, 50.0, 100.0)]
         public void Calculator_Should_Return_Multiply(double x, double y, double expected)
@@ -45,6 +49,7 @@ namespace typoonSkriptTTD
             var actual = sut.Multiply(x, y);
             Assert.Equal(expected, actual);
         }
+
         [Fact]
         public void Value_Should_Calculate_With_Mock_Obj()
         {
@@ -57,16 +62,13 @@ namespace typoonSkriptTTD
             //Then
         }
         // Fråga om detta I handledning, hur hantera man Exceptions..
-        /*         [Theory]
-                [InlineData("JamesJohn", typeof(ArgumentException))]
-                public void Input_Validator_Make_Sure_Throw_Ex(string value, ArgumentException expected)
-                {
-                var sut = new Input();
-                var actual = sut.UserInput(value);
-                Exception ex = Assert.Throws<ArgumentException>(() => actual);
-                Assert.Equal(String.Format("Must be a numeric value"), ex.Message);
-                Assert.Throws<ArgumentException>(() => actual);
-                } */
+        [Fact]
+        public void Input_Validator_Make_Sure_Throw_Ex()
+        {
+            var sut = new Input();
+            var value = "Yellow";
+            Assert.Throws<ArgumentException>(() => sut.UserInput(value));
+        }
         // [Fact]
         // public void ValueShouldAdd4And5() => Values_Should_Calculate_Add(4.0, 5.0, 9.0);
 
@@ -114,16 +116,19 @@ namespace typoonSkriptTTD
 
                     Assert.Equal(expected, actual);
                 }*/
-        [Fact]
+/*         [Fact]
         public void Value_Should_Calculate()
         {
             //Given
             var mochObj = new Mock<Random>();
             var randomNumber = mochObj.Setup(r => r.Next(1, 100)).Returns(2);
 
+            var sut = new Calculator();
+            // var value = sut.Multiply(mochObj.Object);
+            mochObj.Verify(random => random.Next(It.IsAny<int>(), It.IsAny<int>()), Times.AtLeastOnce());
             //When
 
             //Then
-        }
+        } */
     }
 }
