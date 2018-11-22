@@ -37,7 +37,7 @@ namespace Domain
         }
         public double Divide(double x, double y)
         {
-            throw new Exception();
+            return 0;
         }
 
         /*
