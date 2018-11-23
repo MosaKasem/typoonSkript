@@ -16,7 +16,6 @@ namespace Domain
             {
                 try
                 {
-                    UserInput = askUser();
                     var c = new Calculator();
                     var i = new Input();
                     WriteLine("-- Enter Value --");
@@ -44,9 +43,15 @@ namespace Domain
         {
             WriteLine("---------------Q to Quit----------------");
             WriteLine("---------------Else Enter---------------");
+            string userInputs = Console.ReadLine();
             try
             {
-                return Console.In.ReadLine();
+                if (userInputs == "Q")
+                {
+                    return userInputs;
+                } else {
+                    return "";
+                }
             }
             catch (Exception ex)
             {

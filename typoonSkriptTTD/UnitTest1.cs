@@ -8,7 +8,6 @@ namespace typoonSkriptTTD
 
     public class UnitTest1
     {
-
         [Theory]
         [InlineData("50", 50)]
         [InlineData("25", 25)]
@@ -18,6 +17,7 @@ namespace typoonSkriptTTD
         {
             var sut = new Input();
             var actual = sut.UserInput(value);
+            Assert.IsType<double>(actual);
             Assert.Equal(expected, actual);
         }
 
@@ -67,6 +67,15 @@ namespace typoonSkriptTTD
             var value = "Yellow";
             Assert.Throws<ArgumentException>(() => sut.UserInput(value));
         }
+    [Fact]
+    public void TestName()
+    {
+    //Given
+    
+    //When
+    
+    //Then
+    }
         // [Fact]
         // public void ValueShouldAdd4And5() => Values_Should_Calculate_Add(4.0, 5.0, 9.0);
 
