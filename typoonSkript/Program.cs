@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using static System.Console;
 
 namespace Domain
 {
@@ -6,12 +11,16 @@ namespace Domain
     {
         static void Main(string[] args)
         {
-            var calculator = new Calculator();
-            var user = new Input();
-            var firstValue      = user.UserInput(Console.ReadLine());
-            var secondValue     = user.UserInput(Console.ReadLine());
-            var calculation     = calculator.SimpleCalculator(firstValue, secondValue);
-            Console.WriteLine(calculation);
+
+            try
+            {
+                App app = new App();
+                while (app.application());
+            }
+            catch (Exception Ex)
+            {
+
+            }
         }
     }
 }
