@@ -13,5 +13,10 @@ namespace Domain
             if (!double.TryParse(input, out double convertedNumber)) throw new ArgumentException("Must be a numeric value");
             return convertedNumber;
         }
+        public string Exit(string input)
+        {
+            if (input == "Q") return input;
+            return input = "";
+        }
     }
 }

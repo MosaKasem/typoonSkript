@@ -26,7 +26,9 @@ namespace Domain
                     WriteLine($"-- {userFirstValue} ? {userSecondValue} --");
                     double calculateValues = c.SimpleCalculator(userFirstValue, userSecondValue);
                     WriteLine($"The Result is: {calculateValues}");
-                    UserInput = askUser();
+                    // UserInput = askUser();
+                    string ExitConfirmed = i.Exit(Console.ReadLine());
+                    ExitConfirmed = UserInput;
                 }
                 catch (Exception Ex)
                 {
