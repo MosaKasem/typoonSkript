@@ -9,6 +9,16 @@ namespace Domain
 {
     public class Calculator
     {
+        private readonly IStore store;
+        public Calculator(IStore store)
+        {
+            this.store = store;
+        }
+        public int Add(int input)
+        {
+            this.store.Save(input);
+            return input;
+        }
         public double SimpleCalculator(double x, double y)
         {
             Operation operation = GetInput();

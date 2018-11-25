@@ -67,15 +67,16 @@ namespace typoonSkriptTTD
             var value = "Yellow";
             Assert.Throws<ArgumentException>(() => sut.UserInput(value));
         }
-    [Fact]
-    public void TestName()
-    {
-    //Given
-    
-    //When
-    
-    //Then
-    }
+        [Fact]
+        public void TestName()
+        {
+            //Given
+            var app = new App();
+
+            //When
+
+            //Then
+        }
         // [Fact]
         // public void ValueShouldAdd4And5() => Values_Should_Calculate_Add(4.0, 5.0, 9.0);
 

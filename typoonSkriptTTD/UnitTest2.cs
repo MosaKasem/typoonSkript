@@ -6,20 +6,18 @@ namespace typoonSkriptTTD
 {
     public class UnitTest2
     {
-/*         [Theory]
-        [InlineData(5.5, 5.5, 11.0)]
-        [InlineData(25.0, 25.0, 50.0)]
-        [InlineData(double.MaxValue, 5, double.MaxValue)]
-        public void Values_Should_Calculate_Bla(double x, double y, double expected)
+        [Theory]
+        [InlineData(Operation.divide, Operation.plus)]
+        public void Values_Should_Calculate_Bla(Operation actual, Operation expected)
         {
             var mochObj = new Mock<Calculator>();
 
             // actual
             var sut = new Calculator();
-            var actual = sut.Add(x, y);
+            actual = sut.MyOptions(actual);
 
             // assert
-            Assert.Equal(expected, 55555);
-        } */
+            Assert.Equal(expected, actual);
+        }
     }
 }
