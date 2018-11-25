@@ -15,6 +15,8 @@ namespace Domain
         }
         public string Exit(string input)
         {
+            Console.WriteLine("---------------Q to Quit----------------");
+            Console.WriteLine("---------------Else Enter---------------");
             if (input == "Q") return input;
             return input = "";
         }

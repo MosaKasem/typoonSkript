@@ -26,9 +26,7 @@ namespace Domain
                     WriteLine($"-- {userFirstValue} ? {userSecondValue} --");
                     double calculateValues = c.SimpleCalculator(userFirstValue, userSecondValue);
                     WriteLine($"The Result is: {calculateValues}");
-                    // UserInput = askUser();
-                    string ExitConfirmed = i.Exit(Console.ReadLine());
-                    ExitConfirmed = UserInput;
+                    UserInput = i.Exit(Console.ReadLine());
                 }
                 catch (Exception Ex)
                 {
@@ -41,26 +39,6 @@ namespace Domain
             }
             return false;
         }
-        public string askUser()
-        {
-            WriteLine("---------------Q to Quit----------------");
-            WriteLine("---------------Else Enter---------------");
-            string userInputs = Console.ReadLine();
-            try
-            {
-                if (userInputs == "Q")
-                {
-                    return userInputs;
-                } else {
-                    return "";
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
     }
 
 }

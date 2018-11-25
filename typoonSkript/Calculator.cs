@@ -57,7 +57,8 @@ namespace Domain
         }
         public Operation GetInput()
         {
-            switch (System.Console.In.Read())
+            string x = Console.ReadLine();
+            switch (x.ToCharArray()[0])
             {
                 case '+':
                     return Operation.plus;
