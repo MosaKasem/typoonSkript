@@ -19,7 +19,7 @@ namespace Domain
         }
         public bool IsEligable(Operation op)
         {
-            throw new Exception();
+            return true;
 /*             if (op == Operation.plus || op == Operation.minus || op == Operation.divide || op == Operation.multiply)
             {
                 return true;
