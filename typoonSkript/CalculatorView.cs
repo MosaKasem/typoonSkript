@@ -10,6 +10,7 @@ namespace Domain
     {
         public Operation GetInput()
         {
+            Console.WriteLine("--Choose operator ( + )( - )( * )( / )");
             string x = Console.ReadLine();
             switch (x.ToCharArray()[0])
             {

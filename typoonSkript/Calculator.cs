@@ -19,26 +19,20 @@ namespace Domain
         }
         public bool IsEligable(Operation op)
         {
-            return true;
-/*             if (op == Operation.plus || op == Operation.minus || op == Operation.divide || op == Operation.multiply)
+            if (op == Operation.plus || op == Operation.minus || op == Operation.divide || op == Operation.multiply)
             {
                 return true;
-            } else {
-                return false;
-            } */
+            }
+            else
+            {
+                throw new ArgumentException("Invalid Operation!");
+            }
         }
         public void SimpleCalculator(double x, double y)
         {
+
             Operation operation = this.cView.GetInput();
-            while(operation != Operation.Null)
-            try
-            {
-                IsEligable(operation);
-            }
-            catch (System.Exception Ex)
-            {
-                Console.WriteLine(Ex.Message);
-            }
+            IsEligable(operation);
             double result;
 
             switch (operation)
@@ -59,9 +53,9 @@ namespace Domain
                     result = Divide(x, y);
                     this.cView.PresentResult(result);
                     break;
-/*                 default:
-                    return 0; */
             }
+
+
         }
         public double Add(double x, double y)
         {
@@ -86,23 +80,6 @@ namespace Domain
                 return 0;
             }
         }
-/*         public Operation GetInput()
-        {
-            string x = Console.ReadLine();
-            switch (x.ToCharArray()[0])
-            {
-                case '+':
-                    return Operation.plus;
-                case '-':
-                    return Operation.minus;
-                case '*':
-                    return Operation.multiply;
-                case '/':
-                    return Operation.divide;
-                default:
-                    return Operation.Null;
-            }
-        } */
     }
 
 }
