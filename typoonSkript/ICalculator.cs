@@ -3,11 +3,11 @@ using System.Linq;
 using System.Collections;
 using System;
 using System.Collections.Generic;
-using Moq;
+
 namespace Domain
 {
-    public interface IStore
+/*     public interface ICalculator
     {
-        void Save(int result);
-    }
+        void readData(Operation operator)   
+    } */
 }

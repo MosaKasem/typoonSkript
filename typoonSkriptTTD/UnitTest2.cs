@@ -7,17 +7,18 @@ namespace typoonSkriptTTD
     public class UnitTest2
     {
         [Theory]
-        [InlineData(Operation.divide, Operation.plus)]
-        public void Values_Should_Calculate_Bla(Operation actual, Operation expected)
+        [InlineData(25, 25, true)]
+        public void Values_Should_Calculate_Bla(double x, double y, Boolean expected)
         {
             var mochObj = new Mock<Calculator>();
 
             // actual
             var sut = new Calculator();
-            actual = sut.MyOptions(actual);
+            var expect = Operation.plus;
+            var actual = sut.isEligable(x, y, expect);
 
             // assert
-            Assert.Equal(expected, actual);
+            Assert.True(actual);
         }
     }
 }

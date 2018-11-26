@@ -9,16 +9,11 @@ namespace Domain
 {
     public class Calculator
     {
-        private readonly IStore store;
-        public Calculator(IStore store)
+/*         private readonly ICalculator readData;
+        public Calculator(ICalculator readData)
         {
-            this.store = store;
-        }
-        public int Add(int input)
-        {
-            this.store.Save(input);
-            return input;
-        }
+            this.readData = readData;
+        } */
         public double SimpleCalculator(double x, double y)
         {
             Operation operation = GetInput();

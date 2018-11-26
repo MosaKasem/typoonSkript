@@ -19,7 +19,7 @@ namespace Domain
             }
             catch (Exception Ex)
             {
-
+                throw new Exception(Ex.Message);
             }
         }
     }

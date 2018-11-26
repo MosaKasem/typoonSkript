@@ -3,7 +3,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using static System.Console;
+// using static System.Console;
 namespace Domain
 {
     public class App
@@ -16,25 +16,26 @@ namespace Domain
             {
                 try
                 {
+                    // ICalculator read;
                     var c = new Calculator();
                     var i = new Input();
-                    WriteLine("-- Enter Value --");
-                    double userFirstValue = i.UserInput(ReadLine());
-                    WriteLine("-- Enter Second Value --");
-                    double userSecondValue = i.UserInput(ReadLine());
-                    WriteLine("-- Enter One Of The Following Operations (- + * /) --");
-                    WriteLine($"-- {userFirstValue} ? {userSecondValue} --");
+                    Console.WriteLine("-- Enter Value --");
+                    double userFirstValue = i.UserInput(Console.ReadLine());
+                    Console.WriteLine("-- Enter Second Value --");
+                    double userSecondValue = i.UserInput(Console.ReadLine());
+                    Console.WriteLine("-- Enter One Of The Following Operations (- + * /) --");
+                    Console.WriteLine($"-- {userFirstValue} ? {userSecondValue} --");
                     double calculateValues = c.SimpleCalculator(userFirstValue, userSecondValue);
-                    WriteLine($"The Result is: {calculateValues}");
-                    UserInput = i.Exit(Console.ReadLine());
+                    Console.WriteLine($"The Result is: {calculateValues}");
+                    UserInput = i.Exit();
                 }
                 catch (Exception Ex)
                 {
-                    ForegroundColor = ConsoleColor.Red;
-                    WriteLine("----------------------------------------");
-                    WriteLine(Ex.Message);
-                    WriteLine("----------------------------------------");
-                    ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("----------------------------------------");
+                    Console.WriteLine(Ex.Message);
+                    Console.WriteLine("----------------------------------------");
+                    Console.ResetColor();
                 }
             }
             return false;
