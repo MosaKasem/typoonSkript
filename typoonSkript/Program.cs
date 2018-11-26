@@ -11,7 +11,6 @@ namespace Domain
     {
         static void Main(string[] args)
         {
-
             try
             {
                 App app = new App();

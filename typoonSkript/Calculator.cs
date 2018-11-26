@@ -3,38 +3,55 @@ using System.Linq;
 using System.Collections;
 using System;
 using System.Collections.Generic;
-using Moq;
 
 namespace Domain
 {
-    public class Calculator
+    public interface IValue
     {
-/*         private readonly ICalculator readData;
-        public Calculator(ICalculator readData)
+        bool IsEligable(Operation op);
+    }
+    public class Calculator : IValue
+    {
+        CalculatorView cView;
+        public Calculator(CalculatorView cView)
         {
-            this.readData = readData;
-        } */
-        public double SimpleCalculator(double x, double y)
+            this.cView = cView;
+        }
+        public bool IsEligable(Operation op)
         {
-            Operation operation = GetInput();
+            throw new Exception();
+/*             if (op == Operation.plus || op == Operation.minus || op == Operation.divide || op == Operation.multiply)
+            {
+                return true;
+            } else {
+                return false;
+            } */
+        }
+        public void SimpleCalculator(double x, double y)
+        {
+            Operation operation = this.cView.GetInput();
             double result;
 
             switch (operation)
             {
                 case Operation.plus:
                     result = Add(x, y);
-                    return result;
+                    this.cView.PresentResult(result);
+                    break;
                 case Operation.minus:
                     result = Subtract(x, y);
-                    return result;
+                    this.cView.PresentResult(result);
+                    break;
                 case Operation.multiply:
                     result = Multiply(x, y);
-                    return result;
+                    this.cView.PresentResult(result);
+                    break;
                 case Operation.divide:
                     result = Divide(x, y);
-                    return result;
-                    default:
-                    return 0;
+                    this.cView.PresentResult(result);
+                    break;
+/*                 default:
+                    return 0; */
             }
         }
         public double Add(double x, double y)
@@ -60,7 +77,7 @@ namespace Domain
                 return 0;
             }
         }
-        public Operation GetInput()
+/*         public Operation GetInput()
         {
             string x = Console.ReadLine();
             switch (x.ToCharArray()[0])
@@ -76,7 +93,7 @@ namespace Domain
                 default:
                     return Operation.Null;
             }
-        }
+        } */
     }
 
 }

@@ -8,25 +8,20 @@ namespace Domain
 {
     public class App
     {
+        Operation operation = Operation.Null;
         public bool application()
         {
-
             string UserInput = ""; // False
             while (UserInput != "Q")
             {
                 try
                 {
-                    // ICalculator read;
-                    var c = new Calculator();
+                    var v = new CalculatorView();
+                    var c = new Calculator(v);
                     var i = new Input();
-                    Console.WriteLine("-- Enter Value --");
-                    double userFirstValue = i.UserInput(Console.ReadLine());
-                    Console.WriteLine("-- Enter Second Value --");
-                    double userSecondValue = i.UserInput(Console.ReadLine());
-                    Console.WriteLine("-- Enter One Of The Following Operations (- + * /) --");
-                    Console.WriteLine($"-- {userFirstValue} ? {userSecondValue} --");
-                    double calculateValues = c.SimpleCalculator(userFirstValue, userSecondValue);
-                    Console.WriteLine($"The Result is: {calculateValues}");
+                    var firstValue = v.ReturnValue("--Enter Value--");
+                    var seconValue = v.ReturnValue("--Enter Second Value--");
+                    c.SimpleCalculator(firstValue, seconValue);
                     UserInput = i.Exit();
                 }
                 catch (Exception Ex)
