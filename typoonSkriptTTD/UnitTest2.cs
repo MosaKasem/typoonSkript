@@ -9,7 +9,11 @@ namespace typoonSkriptTTD
         [Fact]
         public void Values_Should_Calculate_Bla()
         {
-            
+            var viewMock = new Mock<CalculatorView>();
+            var sut = new Calculator(viewMock.Object);
+            Boolean act = sut.IsEligable(Operation.Null);
+            Boolean expected = true;
+            Assert.Equal(expected, act);
         }
     }
 }

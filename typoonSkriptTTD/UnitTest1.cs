@@ -8,7 +8,7 @@ namespace typoonSkriptTTD
 
     public class UnitTest1
     {
-        [Theory]
+/*         [Theory]
         [InlineData("50", 50)]
         [InlineData("25", 25)]
         [InlineData("-25", -25)]
@@ -67,7 +67,9 @@ namespace typoonSkriptTTD
             var value = "Yellow";
             Assert.Throws<ArgumentException>(() => sut.UserInput(value));
         }
-        [Fact]
+        [Fact] */
+
+        
         public void TestName()
         {
             //Given

@@ -30,6 +30,15 @@ namespace Domain
         public void SimpleCalculator(double x, double y)
         {
             Operation operation = this.cView.GetInput();
+            while(operation != Operation.Null)
+            try
+            {
+                IsEligable(operation);
+            }
+            catch (System.Exception Ex)
+            {
+                Console.WriteLine(Ex.Message);
+            }
             double result;
 
             switch (operation)
