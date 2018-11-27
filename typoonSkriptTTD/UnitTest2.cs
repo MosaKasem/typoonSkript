@@ -7,13 +7,12 @@ namespace typoonSkriptTTD
     public class UnitTest2
     {
         [Fact]
-        public void Values_Should_Calculate_Bla()
+        public void Values_Should_Return_True_On_Correct_Operator()
         {
             var viewMock = new Mock<CalculatorView>();
             var sut = new Calculator(viewMock.Object);
-            Boolean act = sut.IsEligable(Operation.Null);
-            Boolean expected = true;
-            Assert.Equal(expected, act);
+            Assert.Throws<ArgumentException>(() => sut.IsEligable(Operation.Null));
         }
+
     }
 }
