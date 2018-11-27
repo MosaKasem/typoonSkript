@@ -11,8 +11,8 @@ namespace Domain
         Operation operation = Operation.Null;
         public bool application()
         {
-            string UserInput = ""; // False
-            while (UserInput != "Q")
+            bool UserInput = false; // False
+            while (!UserInput)
             {
                 try
                 {

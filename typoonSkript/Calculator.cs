@@ -54,8 +54,6 @@ namespace Domain
                     this.cView.PresentResult(result);
                     break;
             }
-
-
         }
         public double Add(double x, double y)
         {
