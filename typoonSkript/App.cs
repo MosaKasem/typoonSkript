@@ -11,6 +11,7 @@ namespace Domain
         private Calculator c;
         private CalculatorView v;
         private Input i;
+        
         public App(Calculator c, CalculatorView v, Input i)
         {
             this.c = c;

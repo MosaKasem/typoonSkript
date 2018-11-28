@@ -70,15 +70,6 @@ namespace typoonSkriptTTD
         [Fact] */
 
         
-        public void TestName()
-        {
-            //Given
-            var app = new App();
-
-            //When
-
-            //Then
-        }
         // [Fact]
         // public void ValueShouldAdd4And5() => Values_Should_Calculate_Add(4.0, 5.0, 9.0);
 
