@@ -25,8 +25,8 @@ namespace typoonSkriptTTD
         [InlineData("250000000000", 250000000000)]
         public void Input_Validator_Make_Sure_Its_Numeric(string value, double expected)
         {
-            var sut = new Input();
-            var actual = sut.UserInput(value);
+            var sut = new CalculatorView();
+            var actual = sut.ReturnValue(value);
             Assert.IsType<double>(actual);
             Assert.Equal(expected, actual);
         } */
@@ -77,10 +77,10 @@ namespace typoonSkriptTTD
         [Fact] // OLD
         public void Input_Validator_Make_Sure_Throw_Ex()
         {
-            SetUpMockObjects();
+/*             SetUpMockObjects();
             var sut = new CalculatorView();
             var value = "Yellow";
-            Assert.Throws<ArgumentException>(() => sut.ReturnValue(value));
+            Assert.Throws<ArgumentException>(() => sut.ReturnValue(value)); */
         }
 
 

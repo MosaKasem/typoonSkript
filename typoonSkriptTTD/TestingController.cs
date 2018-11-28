@@ -30,18 +30,27 @@ namespace typoonSkriptTTD
             }
         }
         [Fact]
-        public void Test_Correct_Type()
+        public void Test_Correct_Type_Of_Calculator()
         {
             var c = new CalculatorView();
             var p = new Calculator(c);
 
             Assert.IsType<Calculator>(p);
         }
+                [Fact]
+        public void Test_Correct_Type_Of_App()
+        {
+            SetUpMockObjects();
+            var app = new App(mock_c.Object, mock_cv.Object, mock_i.Object);
+            Assert.IsType<App>(app);
+        }
         [Fact]
         public void Input_Should_Return_Correct_Operator()
         {
-            SetUpMockObjects();
+/*             SetUpMockObjects();
             var console = new CalculatorView();
+            var actual = console.ReturnValue("abc");
+            Assert.Equal() */
 
         }
 /*         [Fact]

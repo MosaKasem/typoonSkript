@@ -14,9 +14,10 @@ namespace Domain
         
         public App(Calculator c, CalculatorView v, Input i)
         {
-            this.c = c;
+            throw new Exception();
+/*             this.c = c;
             this.v = v;
-            this.i = i;
+            this.i = i; */
         }
         Operation operation = Operation.Null;
         public bool application()

@@ -45,7 +45,7 @@ namespace Domain
         public double ReturnValue(string Question)
         {
             Console.WriteLine(Question);
-            // throw new Exception();
+            // throw new Exception(); // Fråga hur testar 
             return UserInput(ReadLine());
         }
 
