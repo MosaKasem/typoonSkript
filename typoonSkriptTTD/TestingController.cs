@@ -38,11 +38,11 @@ namespace typoonSkriptTTD
             Assert.IsType<Calculator>(p);
         }
         [Fact]
-        public void TestName()
+        public void Input_Should_Return_Correct_Operator()
         {
             SetUpMockObjects();
-            var console = new ConsoleTestClass("T");
-            Assert.Contains(console.ReadLine());
+            var console = new CalculatorView();
+
         }
 /*         [Fact]
         public void TestName()

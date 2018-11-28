@@ -22,8 +22,9 @@ namespace Domain
         public Operation GetInput()
         {
             Console.WriteLine("--Choose operator ( + )( - )( * )( / )");
-            string x = Console.ReadLine();
-            switch (x.ToCharArray()[0])
+            string x = ReadLine();
+            throw new Exception();
+/*             switch (x.ToCharArray()[0])
             {
                 case '+':
                     return Operation.plus;
@@ -35,7 +36,7 @@ namespace Domain
                     return Operation.divide;
                 default:
                     return Operation.Null;
-            }
+            } */
         }
         public void PresentResult(double presentValue)
         {
