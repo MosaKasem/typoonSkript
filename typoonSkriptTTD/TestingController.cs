@@ -45,12 +45,13 @@ namespace typoonSkriptTTD
             Assert.IsType<App>(app);
         }
         [Fact]
-        public void Calculator_Should_Return_Correct_Operation()
+        public void Return_Correct_Operation_Based_On_Argument()
         {
-            var c = new Calculator(mock_cv.Object);
-            c.SimpleCalculator(20, 20, Operation.divide);
-            mock_cv.Verify(m => m.GetInput("/"), Times.AtLeastOnce());
-            
+            var calcView = new CalculatorView();
+            Operation expected = Operation.divide;
+            var actual = calcView.GetInput("/");
+            Assert.Equal(expected, actual);
+
         }
         [Fact]
         public void Input_Should_Return_Correct_Operator()
