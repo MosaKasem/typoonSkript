@@ -29,7 +29,7 @@ namespace Domain
 
                     var firstValue = this.v.ReturnValue("--Enter Value--");
                     var seconValue = this.v.ReturnValue("--Enter Second Value--");
-                    this.c.SimpleCalculator(firstValue, seconValue);
+                    this.c.SimpleCalculator(firstValue, seconValue, Operation.divide);
                     UserInput = this.i.Exit();
                 }
                 catch (Exception Ex)

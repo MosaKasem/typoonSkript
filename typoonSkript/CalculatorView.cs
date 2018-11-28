@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-    public interface IConsole
+/*     public interface IConsole
     {
         string ReadLine();
     }
@@ -16,13 +16,14 @@ namespace Domain
         {
             return Console.ReadLine();
         }
-    }
-    public class CalculatorView : ConsoleWrapper
+    } */
+    public class CalculatorView// : ConsoleWrapper
     {
-        public Operation GetInput()
+        public Operation GetInput(string operation)
         {
             Console.WriteLine("--Choose operator ( + )( - )( * )( / )");
-            string x = ReadLine();
+            return Operation.divide;
+            // string x = Console.ReadLine();
             throw new Exception();
 /*             switch (x.ToCharArray()[0])
             {
@@ -46,7 +47,7 @@ namespace Domain
         {
             Console.WriteLine(Question);
             // throw new Exception(); // Fråga hur testar 
-            return UserInput(ReadLine());
+            return UserInput(Console.ReadLine());
         }
 
         private double UserInput(string input)
