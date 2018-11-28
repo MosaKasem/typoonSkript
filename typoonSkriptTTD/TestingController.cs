@@ -37,7 +37,7 @@ namespace typoonSkriptTTD
 
             Assert.IsType<Calculator>(p);
         }
-                [Fact]
+        [Fact]
         public void Test_Correct_Type_Of_App()
         {
             SetUpMockObjects();
@@ -45,19 +45,27 @@ namespace typoonSkriptTTD
             Assert.IsType<App>(app);
         }
         [Fact]
+        public void Calculator_Should_Return_Correct_Operation()
+        {
+            var c = new Calculator(mock_cv.Object);
+            c.SimpleCalculator(20, 20, Operation.divide);
+            mock_cv.Verify(m => m.GetInput("/"), Times.AtLeastOnce());
+            
+        }
+        [Fact]
         public void Input_Should_Return_Correct_Operator()
         {
-/*             SetUpMockObjects();
-            var console = new CalculatorView();
-            var actual = console.ReturnValue("abc");
-            Assert.Equal() */
+            /*             SetUpMockObjects();
+                        var console = new CalculatorView();
+                        var actual = console.ReturnValue("abc");
+                        Assert.Equal() */
 
         }
-/*         [Fact]
-        public void TestName()
-        {
-            var sut = new CalculatorView();
-            var actual = 
-        } */
+        /*         [Fact]
+                public void TestName()
+                {
+                    var sut = new CalculatorView();
+                    var actual = 
+                } */
     }
 }
