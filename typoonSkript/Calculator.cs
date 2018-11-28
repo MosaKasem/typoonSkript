@@ -10,12 +10,13 @@ namespace Domain
     {
         bool IsEligable(Operation op);
     }
-    public class Calculator : IValue
+    public class Calculato : IValue
     {
         CalculatorView cView;
         public Calculator(CalculatorView cView)
         {
             this.cView = cView;
+            OperatingSystem red;
         }
         public bool IsEligable(Operation op)
         {

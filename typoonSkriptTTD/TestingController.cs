@@ -6,7 +6,7 @@ using System.IO;
 
 namespace typoonSkriptTTD
 {
-    public class UnitTest2
+    public class TestingController
     {
         private Mock<Calculator> mock_c;
         private Mock<CalculatorView> mock_cv;
@@ -24,6 +24,14 @@ namespace typoonSkriptTTD
             {
                 this._console = console;
             }
+        }
+        [Fact]
+        public void TestName()
+        {
+            var c = new CalculatorView();
+            var p = new Calculator(c);
+
+            Assert.IsType<Calculator>(p);
         }
 /*         [Fact]
         public void TestName()
