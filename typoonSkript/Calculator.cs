@@ -10,7 +10,7 @@ namespace Domain
     {
         bool IsEligable(Operation op);
     }
-    public class Calculato : IValue
+    public class Calculator : IValue
     {
         CalculatorView cView;
         public Calculator(CalculatorView cView)
