@@ -8,6 +8,15 @@ namespace Domain
 {
     public class App
     {
+        private Calculator c;
+        private CalculatorView v;
+        private Input i;
+        public App(Calculator c, CalculatorView v, Input i)
+        {
+            this.c = c;
+            this.v = v;
+            this.i = i;
+        }
         Operation operation = Operation.Null;
         public bool application()
         {
@@ -16,13 +25,11 @@ namespace Domain
             {
                 try
                 {
-                    var v = new CalculatorView();
-                    var c = new Calculator(v);
-                    var i = new Input();
-                    var firstValue = v.ReturnValue("--Enter Value--");
-                    var seconValue = v.ReturnValue("--Enter Second Value--");
-                    c.SimpleCalculator(firstValue, seconValue);
-                    UserInput = i.Exit();
+
+                    var firstValue = this.v.ReturnValue("--Enter Value--");
+                    var seconValue = this.v.ReturnValue("--Enter Second Value--");
+                    this.c.SimpleCalculator(firstValue, seconValue);
+                    UserInput = this.i.Exit();
                 }
                 catch (Exception Ex)
                 {

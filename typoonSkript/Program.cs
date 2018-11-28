@@ -11,10 +11,13 @@ namespace Domain
     {
         static void Main(string[] args)
         {
+            var v = new CalculatorView();
+            var c = new Calculator(v);
+            var i = new Input();
+            App app = new App(c, v, i);
             try
             {
-                App app = new App();
-                while (app.application());
+                while (app.application()) ;
             }
             catch (Exception Ex)
             {
