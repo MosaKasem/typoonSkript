@@ -74,14 +74,15 @@ namespace typoonSkriptTTD
             Assert.Equal(expected, actual);
         }
 
-/*         [Fact] // OLD
+        [Fact] // OLD
         public void Input_Validator_Make_Sure_Throw_Ex()
         {
-            var sut = new Input();
+            SetUpMockObjects();
+            var sut = new CalculatorView();
             var value = "Yellow";
-            Assert.Throws<ArgumentException>(() => sut.UserInput(value));
+            Assert.Throws<ArgumentException>(() => sut.ReturnValue(value));
         }
- */
+
 
 
         // [Fact]

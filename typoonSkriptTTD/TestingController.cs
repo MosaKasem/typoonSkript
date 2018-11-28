@@ -19,19 +19,30 @@ namespace typoonSkriptTTD
         }
         public class ConsoleTestClass
         {
-            private readonly IConsole _console;
-            public ConsoleTestClass(IConsole console)
+            private readonly string _console;
+            public ConsoleTestClass(string console)
             {
                 this._console = console;
             }
+            public string ReadLine()
+            {
+                return this._console;
+            }
         }
         [Fact]
-        public void TestName()
+        public void Test_Correct_Type()
         {
             var c = new CalculatorView();
             var p = new Calculator(c);
 
             Assert.IsType<Calculator>(p);
+        }
+        [Fact]
+        public void TestName()
+        {
+            SetUpMockObjects();
+            var console = new ConsoleTestClass("T");
+            Assert.Contains(console.ReadLine());
         }
 /*         [Fact]
         public void TestName()

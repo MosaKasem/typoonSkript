@@ -6,17 +6,16 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-    public interface IValue
+/*     public interface IValue
     {
         bool IsEligable(Operation op);
-    }
-    public class Calculator : IValue
+    } */
+    public class Calculator
     {
         CalculatorView cView;
         public Calculator(CalculatorView cView)
         {
             this.cView = cView;
-            OperatingSystem red;
         }
         public bool IsEligable(Operation op)
         {
@@ -31,7 +30,7 @@ namespace Domain
         }
         public void SimpleCalculator(double x, double y)
         {
-
+            throw new Exception();
             Operation operation = this.cView.GetInput();
             IsEligable(operation);
             double result;
