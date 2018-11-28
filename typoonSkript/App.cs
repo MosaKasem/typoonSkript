@@ -14,7 +14,9 @@ namespace Domain
         
         public App(Calculator c, CalculatorView v, Input i)
         {
-            throw new Exception();
+            c = c;
+            v = v;
+            i = i;
 /*             this.c = c;
             this.v = v;
             this.i = i; */
