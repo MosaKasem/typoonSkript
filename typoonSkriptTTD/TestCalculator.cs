@@ -37,7 +37,7 @@ namespace typoonSkriptTTD
         public void Calculator_Should_Return_Add(double x, double y, double expected)
         {
             SetUpMockObjects();
-            var sut = new Calculator(new CalculatorView()/*mock_cv.Object*/);
+            var sut = new Calculator(mock_cv.Object);
             var actual = sut.Add(x, y);
             Assert.Equal(expected, actual);
         }
@@ -48,7 +48,7 @@ namespace typoonSkriptTTD
         public void Calculator_Should_Return_Subtract(double x, double y, double expected)
         {
             SetUpMockObjects();
-            var sut = new Calculator(new CalculatorView()/*mock_cv.Object*/);
+            var sut = new Calculator(mock_cv.Object);
             var actual = sut.Subtract(x, y);
             Assert.Equal(expected, actual);
         }
@@ -59,7 +59,7 @@ namespace typoonSkriptTTD
         public void Calculator_Should_Return_Multiply(double x, double y, double expected)
         {
             SetUpMockObjects();
-            var sut = new Calculator(new CalculatorView()/*mock_cv.Object*/);
+            var sut = new Calculator(mock_cv.Object);
             var actual = sut.Multiply(x, y);
             Assert.Equal(expected, actual);
         }
@@ -69,7 +69,7 @@ namespace typoonSkriptTTD
         public void Calculator_Should_Return_Divide(double x, double y, double expected)
         {
             SetUpMockObjects();
-            var sut = new Calculator(new CalculatorView()/*mock_cv.Object*/);
+            var sut = new Calculator(mock_cv.Object);
             var actual = sut.Divide(x, y);
             Assert.Equal(expected, actual);
         }
