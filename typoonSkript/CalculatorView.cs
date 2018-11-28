@@ -33,8 +33,12 @@ namespace Domain
         public double ReturnValue(string Question)
         {
             Console.WriteLine(Question);
-            return UserInput(Console.ReadLine());
+            return UserInput(Readline());
 
+        }
+        public virtual string Readline()
+        {
+            return Console.ReadLine();
         }
         private double UserInput(string input)
         {

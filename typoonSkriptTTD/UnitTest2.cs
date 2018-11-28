@@ -16,12 +16,24 @@ namespace typoonSkriptTTD
             mock_i  = new Mock<Input>();
         }
         [Fact]
-        public void TestName()
+        public void ReturnValue_Is_Run_Twice()
         {
         SetUpMockObjects();
         var app = new App(mock_c.Object, mock_cv.Object, mock_i.Object);
         app.application();
-        mock_v.
+        mock_cv.Verify(m => m.ReturnValue(""), Times.AtLeast(2));
+        }
+        [Fact]
+        public void Make_Sure_Return_Our_Input()
+        {
+        //Given
+        var calView = new CalculatorView();
+        var actual = mock_cv.Setup(m => m.ReturnValue("")).Returns(25.0);
+        var expected = 25.0;
+        Assert.Equals(expected, actual);
+        //When
+        
+        //Then
         }
 /*         [Fact]
         public void Values_Should_Throw_Exception_On_Null_Operation()
