@@ -6,9 +6,19 @@ using Moq;
 namespace typoonSkriptTTD
 {
 
-    public class UnitTest1
+    public class TestCalculator
     {
-/*         [Theory]
+        // THESE ARE GOOD TO GO - FINISHED - OLD TEST - 1 or 2 UNFINISHED TEST (NOT METOHDS, TESTS ASSERTS WERE UNFINISHED, FUCKING NIGHTMARE)
+                private Mock<Calculator> mock_c;
+        private Mock<CalculatorView> mock_cv;
+        private Mock<Input> mock_i;
+        public void SetUpMockObjects()
+        {
+            mock_cv = new Mock<CalculatorView>();
+            mock_c = new Mock<Calculator>(mock_cv.Object);
+            mock_i = new Mock<Input>();
+        }
+        [Theory]
         [InlineData("50", 50)]
         [InlineData("25", 25)]
         [InlineData("-25", -25)]
@@ -67,7 +77,7 @@ namespace typoonSkriptTTD
             var value = "Yellow";
             Assert.Throws<ArgumentException>(() => sut.UserInput(value));
         }
-        [Fact] */
+        [Fact]
 
         
         // [Fact]

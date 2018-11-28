@@ -6,7 +6,18 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-    public class CalculatorView
+    public interface IConsole
+    {
+        string ReadLine();
+    }
+    public class ConsoleWrapper : IConsole
+    {
+        public string ReadLine()
+        {
+            return Console.ReadLine();
+        }
+    }
+    public class CalculatorView : ConsoleWrapper
     {
         public Operation GetInput()
         {
@@ -33,13 +44,10 @@ namespace Domain
         public double ReturnValue(string Question)
         {
             Console.WriteLine(Question);
-            return UserInput(Readline());
+            throw new Exception();
+            // return UserInput(ReadLine());
+        }
 
-        }
-        public virtual string Readline()
-        {
-            return Console.ReadLine();
-        }
         private double UserInput(string input)
         {
             if (!double.TryParse(input, out double convertedNumber)) throw new ArgumentException("Must be a numeric value");
