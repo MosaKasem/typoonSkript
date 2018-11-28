@@ -25,14 +25,11 @@ namespace typoonSkriptTTD
                 this._console = console;
             }
         }
-        [Fact]
+/*         [Fact]
         public void TestName()
         {
-        //Given
-        
-        //When
-        
-        //Then
-        }
+            var sut = new CalculatorView();
+            var actual = 
+        } */
     }
 }
