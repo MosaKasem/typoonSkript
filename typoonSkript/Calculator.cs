@@ -30,7 +30,7 @@ namespace Domain
         }
         public void SimpleCalculator(double x, double y, Operation op)
         {
-            Operation operation = this.cView.GetInput();
+            Operation operation = this.cView.GetInput("/");
             IsEligable(operation);
             double result;
 

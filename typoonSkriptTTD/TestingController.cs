@@ -49,9 +49,17 @@ namespace typoonSkriptTTD
         {
             var calcView = new CalculatorView();
             Operation expected = Operation.divide;
+            Operation expected1 = Operation.multiply;
+            Operation expected2 = Operation.plus;
+            Operation expected3 = Operation.minus;
             var actual = calcView.GetInput("/");
+            var actual1 = calcView.GetInput("*");
+            var actual2 = calcView.GetInput("+");
+            var actual3 = calcView.GetInput("-");
             Assert.Equal(expected, actual);
-
+            Assert.Equal(expected3, actual3);
+            Assert.Equal(expected2, actual2);
+            Assert.Equal(expected1, actual1);
         }
         [Fact]
         public void Input_Should_Return_Correct_Operator()
