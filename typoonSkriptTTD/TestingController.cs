@@ -35,24 +35,24 @@ namespace typoonSkriptTTD
             mock_c = new Mock<Calculator>(mock_cv.Object);
             mock_i = new Mock<Input>();
         }
-/*         public class ConsoleTestClass
-        {
-            private readonly string _console;
-            public ConsoleTestClass(string console)
-            {
-                this._console = console;
-            }
-            public string ReadLine()
-            {
-                return this._console;
-            }
-        } */
+        /*         public class ConsoleTestClass
+                {
+                    private readonly string _console;
+                    public ConsoleTestClass(string console)
+                    {
+                        this._console = console;
+                    }
+                    public string ReadLine()
+                    {
+                        return this._console;
+                    }
+                } */
         [Fact]
         public void Test_Correct_Type_Of_Calculator()
         {
             var fakeConsole = new FakeConsole("");
             var c = new CalculatorView(fakeConsole);
-            var p = new Calculator(fakeConsole ,c);
+            var p = new Calculator(fakeConsole, c);
 
             Assert.IsType<Calculator>(p);
         }
@@ -86,7 +86,7 @@ namespace typoonSkriptTTD
             SetUpMockObjects();
             var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             calculator.SimpleCalculator(25.0, 25.0, Operation.plus);
-            mock_c.Setup(m => m.Add(It.IsAny<double>(),It.IsAny<double>()));
+            mock_c.Setup(m => m.Add(It.IsAny<double>(), It.IsAny<double>()));
             mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
             // mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
             // mock_c.Verify
@@ -94,7 +94,7 @@ namespace typoonSkriptTTD
         [Fact]
         public void Verify_Subtract_Was_Run_Inside_SimpleCalculator()
         {
-            SetUpMockObjects();            
+            SetUpMockObjects();
             var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             calculator.SimpleCalculator(50, 25, Operation.minus);
             mock_c.Setup(a => a.Subtract(50, 25));
@@ -103,9 +103,33 @@ namespace typoonSkriptTTD
         [Fact]
         public void isEligable_Should_Return_True_On_Minus()
         {
-            SetUpMockObjects(); 
+            SetUpMockObjects();
             var console = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             var expected = console.IsEligable(Operation.minus);
+            Assert.True(expected);
+        }
+        [Fact]
+        public void isEligable_Should_Return_True_On_Plus()
+        {
+            SetUpMockObjects();
+            var console = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+            var expected = console.IsEligable(Operation.plus);
+            Assert.True(expected);
+        }
+        [Fact]
+        public void isEligable_Should_Return_True_On_Divide()
+        {
+            SetUpMockObjects();
+            var console = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+            var expected = console.IsEligable(Operation.divide);
+            Assert.True(expected);
+        }
+        [Fact]
+        public void isEligable_Should_Return_True_On_Multiply()
+        {
+            SetUpMockObjects();
+            var console = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+            var expected = console.IsEligable(Operation.multiply);
             Assert.True(expected);
         }
     }

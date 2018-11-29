@@ -6,10 +6,10 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-/*     public interface IValue
-    {
-        bool IsEligable(Operation op);
-    } */
+    /*     public interface IValue
+        {
+            bool IsEligable(Operation op);
+        } */
     public class Calculator : ConsoleWrapper
     {
         CalculatorView cView;
@@ -21,7 +21,14 @@ namespace Domain
         }
         public bool IsEligable(Operation op)
         {
-            return true;
+            if (op == Operation.plus || op == Operation.minus || op == Operation.divide || op == Operation.multiply)
+            {
+                return true;
+            }
+            else
+            {
+                throw new ArgumentException("Invalid Operation!");
+            }
         }
         public void SimpleCalculator(double x, double y, Operation o)
         {
@@ -33,20 +40,20 @@ namespace Domain
                     result = Add(x, y);
                     this.cView.PresentResult(result);
                     break;
-                 case Operation.minus:
-                 Subtract(x, y);
-                 break;
-/*                    result = Subtract(x, y);
-                    this.cView.PresentResult(result);
+                case Operation.minus:
+                    Subtract(x, y);
                     break;
-                case Operation.multiply:
-                    result = Multiply(x, y);
-                    this.cView.PresentResult(result);
-                    break;
-                case Operation.divide:
-                    result = Divide(x, y);
-                    this.cView.PresentResult(result);
-                    break; */
+                    /*                    result = Subtract(x, y);
+                                        this.cView.PresentResult(result);
+                                        break;
+                                    case Operation.multiply:
+                                        result = Multiply(x, y);
+                                        this.cView.PresentResult(result);
+                                        break;
+                                    case Operation.divide:
+                                        result = Divide(x, y);
+                                        this.cView.PresentResult(result);
+                                        break; */
             }
         }
         public virtual double Add(double x, double y)
