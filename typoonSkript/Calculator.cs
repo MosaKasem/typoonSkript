@@ -40,8 +40,9 @@ namespace Domain
                     result = Add(x, y);
                     this.cView.PresentResult(result);
                     break;
-/*                 case Operation.minus:
-                    result = Subtract(x, y);
+                 case Operation.minus:
+                 throw new Exception();
+/*                    result = Subtract(x, y);
                     this.cView.PresentResult(result);
                     break;
                 case Operation.multiply:
@@ -54,7 +55,7 @@ namespace Domain
                     break; */
             }
         }
-        public double Add(double x, double y)
+        public virtual double Add(double x, double y)
         {
             return x + y;
         }
