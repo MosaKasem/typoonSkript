@@ -86,7 +86,7 @@ namespace typoonSkriptTTD
             SetUpMockObjects();
             var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             calculator.SimpleCalculator(25.0, 25.0, Operation.plus);
-            mock_c.Setup(m => m.Add(It.IsAny<double>(),It.IsAny<double>())).Returns(It.IsAny<double>());
+            mock_c.Setup(m => m.Add(It.IsAny<double>(),It.IsAny<double>()));
             mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
             // mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
             // mock_c.Verify
@@ -97,8 +97,16 @@ namespace typoonSkriptTTD
             SetUpMockObjects();            
             var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             calculator.SimpleCalculator(50, 25, Operation.minus);
-            mock_c.Setup(a => a.Subtract(50, 25)).Returns(25);
-            mock_c.Verify(a => a.Subtract(50, 25), Times.AtLeast(1));
+            mock_c.Setup(a => a.Subtract(50, 25));
+            mock_c.Verify(b => b.Subtract(50, 25), Times.AtLeast(1));
+        }
+        [Fact]
+        public void isEligable_Should_Return_True_On_Minus()
+        {
+            SetUpMockObjects(); 
+            var console = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+            var expected = console.IsEligable(Operation.minus);
+            Assert.True(expected);
         }
     }
 }

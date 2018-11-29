@@ -21,14 +21,8 @@ namespace Domain
         }
         public bool IsEligable(Operation op)
         {
-            if (op == Operation.plus || op == Operation.minus || op == Operation.divide || op == Operation.multiply)
-            {
-                return true;
-            }
-            else
-            {
-                throw new ArgumentException("Invalid Operation!");
-            }
+            throw new Exception();
+
         }
         public void SimpleCalculator(double x, double y, Operation o)
         {
@@ -41,7 +35,8 @@ namespace Domain
                     this.cView.PresentResult(result);
                     break;
                  case Operation.minus:
-                 throw new Exception();
+                 Subtract(x, y);
+                 break;
 /*                    result = Subtract(x, y);
                     this.cView.PresentResult(result);
                     break;
@@ -59,7 +54,7 @@ namespace Domain
         {
             return x + y;
         }
-        public double Subtract(double x, double y)
+        public virtual double Subtract(double x, double y)
         {
             return x - y;
         }
