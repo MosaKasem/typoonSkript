@@ -9,7 +9,7 @@ namespace Domain
     public interface IConsole
     {
         string ReadLine();
-        // string WriteLine();
+        void WriteLine(string msg);
     }
     public class ConsoleWrapper : IConsole
     {
@@ -17,9 +17,10 @@ namespace Domain
         {
             return Console.ReadLine();
         }
-/*         public string WriteLine(string msg)
+        
+        public void WriteLine(string msg)
         {
             Console.WriteLine(msg);
-        } */
+        }
     }
 }

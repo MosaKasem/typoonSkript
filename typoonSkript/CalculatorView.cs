@@ -15,8 +15,7 @@ namespace Domain
         }
         public Operation GetInput()
         {
-            Console.WriteLine("--Choose operator ( + )( - )( * )( / )");
-            string x = this._console.ReadLine();
+            Operation x = this._console.ReadLine();
             switch (x.ToCharArray()[0])
             {
                 case '+':
@@ -37,8 +36,7 @@ namespace Domain
         }
         public double ReturnValue(string Question)
         {
-            Console.WriteLine(Question);
-            // throw new Exception(); // Fråga hur testar 
+            this._console.WriteLine(Question);
             return UserInput(this._console.ReadLine());
         }
 

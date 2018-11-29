@@ -8,7 +8,6 @@ namespace typoonSkriptTTD
 
     public class TestCalculator
     {
-        // THESE ARE GOOD TO GO - FINISHED - OLD TEST - 1 or 2 UNFINISHED TEST (NOT METOHDS, TESTS ASSERTS WERE UNFINISHED, FUCKING NIGHTMARE)
         public class FakeConsole : IConsole
         {
             private string fakeinput;
@@ -20,6 +19,10 @@ namespace typoonSkriptTTD
             {
                 return this.fakeinput;
             }
+            public void WriteLine(string msg)
+            {
+                Console.WriteLine(msg);
+            }
         }
         private Mock<IConsole> mock_fakeConsole;
         private Mock<Calculator> mock_c;
@@ -29,17 +32,17 @@ namespace typoonSkriptTTD
         {
             mock_fakeConsole = new Mock<IConsole>();
             mock_cv = new Mock<CalculatorView>(mock_fakeConsole.Object);
-            mock_c = new Mock<Calculator>(mock_cv.Object);
+            mock_c = new Mock<Calculator>(mock_fakeConsole.Object, mock_cv.Object);
             mock_i = new Mock<Input>();
         }
 
-        /* [Theory]
+        [Theory]
         [InlineData(50, 50, 100)]
         [InlineData(50000, 50000, 100000)]
         public void Calculator_Should_Return_Add(double x, double y, double expected)
         {
             SetUpMockObjects();
-            var sut = new Calculator(mock_cv.Object);
+            var sut = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             var actual = sut.Add(x, y);
             Assert.Equal(expected, actual);
         }
@@ -50,7 +53,7 @@ namespace typoonSkriptTTD
         public void Calculator_Should_Return_Subtract(double x, double y, double expected)
         {
             SetUpMockObjects();
-            var sut = new Calculator(mock_cv.Object);
+            var sut = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             var actual = sut.Subtract(x, y);
             Assert.Equal(expected, actual);
         }
@@ -61,7 +64,7 @@ namespace typoonSkriptTTD
         public void Calculator_Should_Return_Multiply(double x, double y, double expected)
         {
             SetUpMockObjects();
-            var sut = new Calculator(mock_cv.Object);
+            var sut = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             var actual = sut.Multiply(x, y);
             Assert.Equal(expected, actual);
         }
@@ -71,18 +74,18 @@ namespace typoonSkriptTTD
         public void Calculator_Should_Return_Divide(double x, double y, double expected)
         {
             SetUpMockObjects();
-            var sut = new Calculator(mock_cv.Object);
+            var sut = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             var actual = sut.Divide(x, y);
             Assert.Equal(expected, actual);
-        } */
+        }
 
         [Fact] // OLD
         public void Input_Validator_Make_Sure_Throw_Ex()
         {
-/*             SetUpMockObjects();
-            var sut = new CalculatorView();
+            SetUpMockObjects();
+            var sut = new CalculatorView(mock_fakeConsole.Object);
             var value = "Yellow";
-            Assert.Throws<ArgumentException>(() => sut.ReturnValue(value)); */
+            Assert.Throws<ArgumentException>(() => sut.ReturnValue(value));
         }
 
 

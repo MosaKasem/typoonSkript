@@ -13,7 +13,7 @@ namespace Domain
         {
             var w = new ConsoleWrapper();
             var v = new CalculatorView(w);
-            var c = new Calculator(v);
+            var c = new Calculator(w , v);
             var i = new Input();
             App app = new App(c, v, i);
             try

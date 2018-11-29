@@ -10,11 +10,13 @@ namespace Domain
     {
         bool IsEligable(Operation op);
     } */
-    public class Calculator
+    public class Calculator : ConsoleWrapper
     {
         CalculatorView cView;
-        public Calculator(CalculatorView cView)
+        private IConsole _console;
+        public Calculator(IConsole console, CalculatorView cView)
         {
+            this._console = console;
             this.cView = cView;
         }
         public bool IsEligable(Operation op)
@@ -30,9 +32,9 @@ namespace Domain
         }
         public void SimpleCalculator(double x, double y)
         {
-            throw new Exception();
-            Operation operation = this.cView.GetInput();
-            IsEligable(operation);
+            // throw new Exception();
+            Operation operation = this.cView.GetInput(this._console.ReadLine());
+/*             IsEligable(operation);
             double result;
 
             switch (operation)
@@ -53,7 +55,7 @@ namespace Domain
                     result = Divide(x, y);
                     this.cView.PresentResult(result);
                     break;
-            }
+            } */
         }
         public double Add(double x, double y)
         {
