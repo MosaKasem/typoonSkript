@@ -32,9 +32,7 @@ namespace Domain
         }
         public void SimpleCalculator(double x, double y, Operation o)
         {
-            Add(x, y);
-            // Operation operation = this.cView.GetInput(o);
-/*             IsEligable(o);
+            // IsEligable(o);
             double result;
             switch (o)
             {
@@ -42,7 +40,7 @@ namespace Domain
                     result = Add(x, y);
                     this.cView.PresentResult(result);
                     break;
-                case Operation.minus:
+/*                 case Operation.minus:
                     result = Subtract(x, y);
                     this.cView.PresentResult(result);
                     break;
@@ -53,8 +51,8 @@ namespace Domain
                 case Operation.divide:
                     result = Divide(x, y);
                     this.cView.PresentResult(result);
-                    break;
-            } */
+                    break; */
+            }
         }
         public double Add(double x, double y)
         {
