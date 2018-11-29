@@ -32,7 +32,7 @@ namespace Domain
         }
         public void SimpleCalculator(double x, double y, Operation o)
         {
-            throw new Exception();
+            Add(x, y);
             // Operation operation = this.cView.GetInput(o);
 /*             IsEligable(o);
             double result;
