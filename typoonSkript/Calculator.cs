@@ -28,9 +28,10 @@ namespace Domain
                 throw new ArgumentException("Invalid Operation!");
             }
         }
-        public void SimpleCalculator(double x, double y, Operation op)
+        public void SimpleCalculator(double x, double y)
         {
-            Operation operation = this.cView.GetInput("/");
+            throw new Exception();
+            Operation operation = this.cView.GetInput();
             IsEligable(operation);
             double result;
 

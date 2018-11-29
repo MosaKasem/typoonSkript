@@ -8,12 +8,26 @@ namespace typoonSkriptTTD
 {
     public class TestingController
     {
+        public class FakeConsole : IConsole
+        {
+            private string fakeinput;
+            public FakeConsole(string fakeinput)
+            {
+                this.fakeinput = fakeinput;
+            }
+            public string ReadLine()
+            {
+                return this.fakeinput;
+            }
+        }
+        private Mock<IConsole> mock_fakeConsole;
         private Mock<Calculator> mock_c;
         private Mock<CalculatorView> mock_cv;
         private Mock<Input> mock_i;
         public void SetUpMockObjects()
         {
-            mock_cv = new Mock<CalculatorView>();
+            mock_fakeConsole = new Mock<IConsole>();
+            mock_cv = new Mock<CalculatorView>(mock_fakeConsole.Object);
             mock_c = new Mock<Calculator>(mock_cv.Object);
             mock_i = new Mock<Input>();
         }
@@ -32,7 +46,8 @@ namespace typoonSkriptTTD
         [Fact]
         public void Test_Correct_Type_Of_Calculator()
         {
-            var c = new CalculatorView();
+            var fakeConsole = new FakeConsole("+");
+            var c = new CalculatorView(fakeConsole);
             var p = new Calculator(c);
 
             Assert.IsType<Calculator>(p);
@@ -41,40 +56,37 @@ namespace typoonSkriptTTD
         public void Test_Correct_Type_Of_App()
         {
             SetUpMockObjects();
+            
             var app = new App(mock_c.Object, mock_cv.Object, mock_i.Object);
             Assert.IsType<App>(app);
         }
         [Fact]
         public void Return_Correct_Operation_Based_On_Argument()
         {
-            var calcView = new CalculatorView();
-            Operation expected = Operation.divide;
-            Operation expected1 = Operation.multiply;
-            Operation expected2 = Operation.plus;
-            Operation expected3 = Operation.minus;
-            var actual = calcView.GetInput("/");
-            var actual1 = calcView.GetInput("*");
-            var actual2 = calcView.GetInput("+");
-            var actual3 = calcView.GetInput("-");
+            // FRÅGA HUR KAN MAN TESTA NÄR DET FINNS EN REDALINE INUTI GETINPUT?!
+            mock_fakeConsole = new Mock<IConsole>();
+            mock_fakeConsole.Setup(s => s.ReadLine()).Returns("+");
+
+            var calcView = new CalculatorView(mock_fakeConsole.Object);
+            var actual = calcView.GetInput();
+
+            Operation expected = Operation.plus;
+
             Assert.Equal(expected, actual);
-            Assert.Equal(expected3, actual3);
-            Assert.Equal(expected2, actual2);
-            Assert.Equal(expected1, actual1);
-        }
-        [Fact]
-        public void Input_Should_Return_Correct_Operator()
-        {
-            /*             SetUpMockObjects();
-                        var console = new CalculatorView();
-                        var actual = console.ReturnValue("abc");
-                        Assert.Equal() */
+
+            // var actual = calcView.GetInput("/");
+
+            // Assert.Equal(expected2, actual2);
 
         }
-        /*         [Fact]
-                public void TestName()
-                {
-                    var sut = new CalculatorView();
-                    var actual = 
-                } */
+        [Fact]
+        public void Verify_Methods_Were_Run_Upon_UserInput()
+        {
+            // FRÅGA: hur verify att metoden Add, eller Subtract hra körts?
+            // TYP om jag väljer 
+                        SetUpMockObjects();
+                        var console = new Calculator(mock_cv.Object);
+                        // var actual = console.SimpleCalculator
+        }
     }
 }

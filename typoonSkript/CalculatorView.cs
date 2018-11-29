@@ -6,24 +6,18 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-/*     public interface IConsole
+    public class CalculatorView : ConsoleWrapper
     {
-        string ReadLine();
-    }
-    public class ConsoleWrapper : IConsole
-    {
-        public string ReadLine()
+        private IConsole _console;
+        public CalculatorView(IConsole input)
         {
-            return Console.ReadLine();
+            this._console = input;
         }
-    } */
-    public class CalculatorView// : ConsoleWrapper
-    {
-        public Operation GetInput(string operation)
+        public Operation GetInput()
         {
             Console.WriteLine("--Choose operator ( + )( - )( * )( / )");
-            // string x = Console.ReadLine();
-            switch (operation.ToCharArray()[0]/*x.ToCharArray()[0]*/)
+            string x = this._console.ReadLine();
+            switch (x.ToCharArray()[0])
             {
                 case '+':
                     return Operation.plus;
@@ -45,7 +39,7 @@ namespace Domain
         {
             Console.WriteLine(Question);
             // throw new Exception(); // Fråga hur testar 
-            return UserInput(Console.ReadLine());
+            return UserInput(this._console.ReadLine());
         }
 
         private double UserInput(string input)

@@ -11,7 +11,8 @@ namespace Domain
     {
         static void Main(string[] args)
         {
-            var v = new CalculatorView();
+            var w = new ConsoleWrapper();
+            var v = new CalculatorView(w);
             var c = new Calculator(v);
             var i = new Input();
             App app = new App(c, v, i);

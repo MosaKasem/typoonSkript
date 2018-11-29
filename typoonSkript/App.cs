@@ -26,10 +26,10 @@ namespace Domain
             {
                 try
                 {
-
+                    // fråga hur testar man mock verify på calculatorview
                     var firstValue = this.v.ReturnValue("--Enter Value--");
                     var seconValue = this.v.ReturnValue("--Enter Second Value--");
-                    this.c.SimpleCalculator(firstValue, seconValue, Operation.divide);
+                    this.c.SimpleCalculator(firstValue, seconValue);
                     UserInput = this.i.Exit();
                 }
                 catch (Exception Ex)

@@ -9,29 +9,31 @@ namespace typoonSkriptTTD
     public class TestCalculator
     {
         // THESE ARE GOOD TO GO - FINISHED - OLD TEST - 1 or 2 UNFINISHED TEST (NOT METOHDS, TESTS ASSERTS WERE UNFINISHED, FUCKING NIGHTMARE)
+        public class FakeConsole : IConsole
+        {
+            private string fakeinput;
+            public FakeConsole(string fakeinput)
+            {
+                this.fakeinput = fakeinput;
+            }
+            public string ReadLine()
+            {
+                return this.fakeinput;
+            }
+        }
+        private Mock<IConsole> mock_fakeConsole;
         private Mock<Calculator> mock_c;
         private Mock<CalculatorView> mock_cv;
         private Mock<Input> mock_i;
         public void SetUpMockObjects()
         {
-            mock_cv = new Mock<CalculatorView>();
+            mock_fakeConsole = new Mock<IConsole>();
+            mock_cv = new Mock<CalculatorView>(mock_fakeConsole.Object);
             mock_c = new Mock<Calculator>(mock_cv.Object);
             mock_i = new Mock<Input>();
         }
-/*         [Theory] // OLD
-        [InlineData("50", 50)]
-        [InlineData("25", 25)]
-        [InlineData("-25", -25)]
-        [InlineData("250000000000", 250000000000)]
-        public void Input_Validator_Make_Sure_Its_Numeric(string value, double expected)
-        {
-            var sut = new CalculatorView();
-            var actual = sut.ReturnValue(value);
-            Assert.IsType<double>(actual);
-            Assert.Equal(expected, actual);
-        } */
 
-        [Theory]
+        /* [Theory]
         [InlineData(50, 50, 100)]
         [InlineData(50000, 50000, 100000)]
         public void Calculator_Should_Return_Add(double x, double y, double expected)
@@ -72,7 +74,7 @@ namespace typoonSkriptTTD
             var sut = new Calculator(mock_cv.Object);
             var actual = sut.Divide(x, y);
             Assert.Equal(expected, actual);
-        }
+        } */
 
         [Fact] // OLD
         public void Input_Validator_Make_Sure_Throw_Ex()
