@@ -21,8 +21,7 @@ namespace Domain
         }
         public bool IsEligable(Operation op)
         {
-            throw new Exception();
-
+            return true;
         }
         public void SimpleCalculator(double x, double y, Operation o)
         {
