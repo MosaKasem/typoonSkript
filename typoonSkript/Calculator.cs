@@ -30,14 +30,13 @@ namespace Domain
                 throw new ArgumentException("Invalid Operation!");
             }
         }
-        public void SimpleCalculator(double x, double y)
+        public void SimpleCalculator(double x, double y, Operation o)
         {
-            // throw new Exception();
-            Operation operation = this.cView.GetInput(this._console.ReadLine());
-/*             IsEligable(operation);
+            throw new Exception();
+            // Operation operation = this.cView.GetInput(o);
+/*             IsEligable(o);
             double result;
-
-            switch (operation)
+            switch (o)
             {
                 case Operation.plus:
                     result = Add(x, y);

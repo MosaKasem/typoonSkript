@@ -30,7 +30,8 @@ namespace Domain
                     var firstValue = this.v.ReturnValue("--Enter Value--");
                     var seconValue = this.v.ReturnValue("--Enter Second Value--");
                     Console.WriteLine("--Choose operator ( + )( - )( * )( / )");
-                    this.c.SimpleCalculator(firstValue, seconValue);
+                    Operation op  = this.v.GetInput();
+                    this.c.SimpleCalculator(firstValue, seconValue, op);
                     UserInput = this.i.Exit();
                 }
                 catch (Exception Ex)

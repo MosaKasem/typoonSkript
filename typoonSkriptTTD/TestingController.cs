@@ -76,15 +76,14 @@ namespace typoonSkriptTTD
             Assert.Equal(expected, actual);
         }
         [Fact]
-        public void Verify_Methods_Was_Run_Based_On_ReadLine()
+        public void Verify_Methods_Was_Run_Based_On_Operation()
         {
             // FRÅGA: hur verify att metoden Add, eller Subtract hra körts?
             // TYP om jag väljer 
             SetUpMockObjects();
-            mock_fakeConsole.Setup(s => s.ReadLine()).Returns("+");
-
-            // mock_cv.Setup(m => m.GetInput()).Returns();
             var console = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+            console.SimpleCalculator(25.0, 25.0, Operation.plus);
+            // mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
             // var actual = console.SimpleCalculator
         }
     }
