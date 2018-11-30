@@ -119,6 +119,16 @@ namespace typoonSkriptTTD
             Operation expected = Operation.divide;
             Assert.Equal(expected, actual);
         }
+        [Fact]
+        public void GetInput_Should_Return_MinusDivide_On_StringMultiply()
+        {
+            mock_fakeConsole = new Mock<IConsole>();
+            mock_fakeConsole.Setup(s => s.ReadLine()).Returns("*");
+            var calcView = new CalculatorView(mock_fakeConsole.Object);
+            var actual = calcView.GetInput();
+            Operation expected = Operation.multiply;
+            Assert.Equal(expected, actual);
+        }
 
         /* Assert.Equal Enums */
 
