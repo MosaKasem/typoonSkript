@@ -85,6 +85,10 @@ namespace typoonSkriptTTD
                     mock_cv.Setup(s => s.UserInput("2"));
                     mock_cv.Verify(s => s.UserInput(It.IsAny<string>()), Times.AtLeastOnce());
                 } */
+
+
+        /* Assert.Equal Enums */
+
         [Fact]
         public void GetInput_Should_Return_PlusEnum_On_StringPlus()
         {
@@ -95,7 +99,7 @@ namespace typoonSkriptTTD
             Operation expected = Operation.plus;
             Assert.Equal(expected, actual);
         }
-                [Fact]
+        [Fact]
         public void GetInput_Should_Return_MinusEnum_On_StringMinus()
         {
             mock_fakeConsole = new Mock<IConsole>();
@@ -105,6 +109,20 @@ namespace typoonSkriptTTD
             Operation expected = Operation.minus;
             Assert.Equal(expected, actual);
         }
+        [Fact]
+        public void GetInput_Should_Return_MinusDivide_On_StringDivide()
+        {
+            mock_fakeConsole = new Mock<IConsole>();
+            mock_fakeConsole.Setup(s => s.ReadLine()).Returns("/");
+            var calcView = new CalculatorView(mock_fakeConsole.Object);
+            var actual = calcView.GetInput();
+            Operation expected = Operation.divide;
+            Assert.Equal(expected, actual);
+        }
+
+        /* Assert.Equal Enums */
+
+
         [Fact]
         public void Verify_PresentResult_WasRun_In_SimpleCalculator_Add()
         {
