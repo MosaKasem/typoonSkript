@@ -11,7 +11,7 @@ namespace Domain
         }
         public bool Exit()
         {
-            throw new Exception();
+            return false;
 /*             Console.WriteLine("---------------Q to Quit----------------");
             Console.WriteLine("---------------Else Enter---------------");
             string input = this.input.ReadLine();
