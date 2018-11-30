@@ -52,5 +52,13 @@ namespace typoonSkriptTTD
             var input = new Input(mock_fakeConsole.Object);
             Assert.Equal(false, input.Exit());
         }
+        [Fact]
+                public void MakeSureItsRun_Verify()
+        {
+            SetUpMockObjects();
+            mock_i.Setup(s => s.Exit()).Returns(true);
+            mock_i.Object.Exit();
+            mock_i.Verify(mock => mock.Exit(), Times.AtLeastOnce());
+        }
     }
 }

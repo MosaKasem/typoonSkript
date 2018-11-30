@@ -9,7 +9,7 @@ namespace Domain
         {
             this.input = msg;
         }
-        public bool Exit()
+        public virtual bool Exit()
         {
             Console.WriteLine("---------------Q to Quit----------------");
             Console.WriteLine("---------------Else Enter---------------");
