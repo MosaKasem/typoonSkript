@@ -41,6 +41,15 @@ namespace typoonSkriptTTD
             mock_fakeConsole = new Mock<IConsole>();
             mock_fakeConsole.Setup(s => s.ReadLine()).Returns("Q");
             var input = new Input(mock_fakeConsole.Object);
+            Assert.Equal(true, input.Exit());
+        }
+        [Fact]
+        public void Exit_Method_Should_Return_False_On_Other_Than_Q()
+        {
+            SetUpMockObjects();
+            mock_fakeConsole = new Mock<IConsole>();
+            mock_fakeConsole.Setup(s => s.ReadLine()).Returns("2255asdQ22555");
+            var input = new Input(mock_fakeConsole.Object);
             Assert.Equal(false, input.Exit());
         }
     }
