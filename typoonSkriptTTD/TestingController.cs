@@ -149,8 +149,7 @@ namespace typoonSkriptTTD
         {
             SetUpMockObjects();
             var console = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
-            var expected = console.IsEligable(Operation.Null);
-            Assert.Throws<ArgumentException>(() => console.IsEligable(Operation.Null));
+            Assert.Throws<ArgumentException>(() => console.SimpleCalculator(2.2, 2.3, Operation.Null));
         }
     }
 }

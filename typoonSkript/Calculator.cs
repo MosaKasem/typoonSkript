@@ -15,7 +15,7 @@ namespace Domain
             this._console = console;
             this.cView = cView;
         }
-/*         public bool IsEligable(Operation op)
+        public bool IsEligable(Operation op)
         {
             // A bug encountered // cannot solve.
             if (op == Operation.plus || op == Operation.minus || op == Operation.divide || op == Operation.multiply)
@@ -26,7 +26,7 @@ namespace Domain
             {
                 return false;
             }
-        } */
+        }
         public virtual void SimpleCalculator(double x, double y, Operation o)
         {  
             double result;
@@ -49,7 +49,7 @@ namespace Domain
                     this.cView.PresentResult(result);
                     break;
                 case Operation.Null:
-                    throw new Exception("Invalid Operation");    
+                    throw new ArgumentException("Invalid Operation");    
             }
         }
         public virtual double Add(double x, double y)
