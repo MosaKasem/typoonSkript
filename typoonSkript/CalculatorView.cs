@@ -15,7 +15,7 @@ namespace Domain
         }
         public Operation GetInput()
         {
-                throw new Exception();
+                return Operation.minus; 
 /*             string x = this._console.ReadLine();
             switch (x.ToCharArray()[0])
             {
