@@ -1,6 +1,6 @@
 {
   "typoonSkript.dll": {
-    "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\App.cs": {
+    "c:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\App.cs": {
       "Domain.App": {
         "System.Boolean Domain.App::application()": {
           "Lines": {
@@ -61,7 +61,7 @@
         }
       }
     },
-    "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\Calculator.cs": {
+    "c:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\Calculator.cs": {
       "Domain.Calculator": {
         "System.Boolean Domain.Calculator::IsEligable(Domain.Operation)": {
           "Lines": {
@@ -275,19 +275,19 @@
         }
       }
     },
-    "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\CalculatorView.cs": {
+    "c:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\CalculatorView.cs": {
       "Domain.CalculatorView": {
         "Domain.Operation Domain.CalculatorView::GetInput()": {
           "Lines": {
-            "17": 2,
-            "18": 2,
-            "19": 2,
+            "17": 4,
+            "18": 4,
+            "19": 4,
             "22": 1,
             "24": 1,
-            "26": 0,
-            "28": 0,
+            "26": 1,
+            "28": 1,
             "30": 0,
-            "32": 2
+            "32": 4
           },
           "Branches": [
             {
@@ -312,7 +312,7 @@
               "EndOffset": 65,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 19,
@@ -320,7 +320,7 @@
               "EndOffset": 69,
               "Path": 6,
               "Ordinal": 6,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 19,
@@ -393,16 +393,16 @@
         },
         "System.Void Domain.CalculatorView::.ctor(Domain.IConsole)": {
           "Lines": {
-            "12": 22,
-            "13": 22,
-            "14": 22,
-            "15": 21
+            "12": 24,
+            "13": 24,
+            "14": 24,
+            "15": 24
           },
           "Branches": []
         }
       }
     },
-    "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\ConsoleWrapper.cs": {
+    "c:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\ConsoleWrapper.cs": {
       "Domain.ConsoleWrapper": {
         "System.String Domain.ConsoleWrapper::ReadLine()": {
           "Lines": {
@@ -422,7 +422,7 @@
         }
       }
     },
-    "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\Input.cs": {
+    "c:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\Input.cs": {
       "Domain.Input": {
         "System.Boolean Domain.Input::Exit()": {
           "Lines": {
@@ -455,7 +455,7 @@
         }
       }
     },
-    "C:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\Program.cs": {
+    "c:\\Users\\Mosa\\2dv610\\TTDprojectAssignment1pt2\\typoonSkript\\Program.cs": {
       "Domain.Program": {
         "System.Void Domain.Program::Main(System.String[])": {
           "Lines": {
