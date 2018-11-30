@@ -152,35 +152,36 @@ namespace typoonSkriptTTD
             mock_cv.Setup(calcView => calcView.PresentResult(25));
             mock_cv.Verify(calcV => calcV.PresentResult(It.IsAny<double>()), Times.AtLeastOnce());
         }
- /*        [Fact]
-        public void Verify_Add_Was_Run_Inside_SimpleCalculator()
-        {
-            SetUpMockObjects();
-            var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
-            calculator.SimpleCalculator(25.0, 25.0, Operation.plus);
-            var o = mock_c.Object;
+        /*        [Fact]
+               public void Verify_Add_Was_Run_Inside_SimpleCalculator()
+               {
+                   SetUpMockObjects();
+                   var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+                   calculator.SimpleCalculator(25.0, 25.0, Operation.plus);
+                   var o = mock_c.Object;
 
-            mock_c.Setup(calc => calc.Add(It.IsAny<double>(), It.IsAny<double>()));
-            mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
-        } */
-                [Fact]
-                public void Verify_Add_Was_Run_Inside_SimpleCalculator()
-                {
-                    SetUpMockObjects();
-/*                     var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object); */
-                    // var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
-                    // calculator.SimpleCalculator(50, 25, Operation.minus);
-                    // mock_calculator.Setup(s => s.SimpleCalculator(25, 25, Operation.minus));
-                    // var fakemockForCalc = Mock<Calculator>();
+                   mock_c.Setup(calc => calc.Add(It.IsAny<double>(), It.IsAny<double>()));
+                   mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
+               } */
+        /*                 [Fact]
+                        public void Verify_Add_Was_Run_Inside_SimpleCalculator()
+                        {
+                            SetUpMockObjects();
+                            var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+                            // var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+                            // calculator.SimpleCalculator(50, 25, Operation.minus);
+                            // mock_calculator.Setup(s => s.SimpleCalculator(25, 25, Operation.minus));
+                            // var fakemockForCalc = Mock<Calculator>();
 
-                    
-                    mock_calculator.Setup(a => a.Add(25, 25)).Returns(50);
-                    
-                    mock_calculator.Object.SimpleCalculator(25, 25, Operation.plus);
-                    // mock_calculator.Object.Add(25, 25);
-                    mock_calculator.Verify(mock => mock.Add(25, 25), Times.AtLeastOnce());
-                   // mock_calculator.Verify(sa => sa.IsEligable(Operation.minus), Times.AtLeastOnce());
-                } 
+
+                            mock_calculator.Setup(a => a.Add(25, 25)).Returns(50);
+                            mock_calculator.Verify()
+
+                            mock_calculator.Object.SimpleCalculator(25, 25, Operation.plus);
+                            // mock_calculator.Object.Add(25, 25);
+                            mock_calculator.Verify(mock => mock.Add(25, 25), Times.AtLeastOnce());
+                           // mock_calculator.Verify(sa => sa.IsEligable(Operation.minus), Times.AtLeastOnce());
+                        }  */
         [Fact]
         public void isEligable_Should_Return_True_On_Minus()
         {

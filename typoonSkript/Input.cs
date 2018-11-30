@@ -11,11 +11,12 @@ namespace Domain
         }
         public bool Exit()
         {
-            Console.WriteLine("---------------Q to Quit----------------");
+            throw new Exception();
+/*             Console.WriteLine("---------------Q to Quit----------------");
             Console.WriteLine("---------------Else Enter---------------");
-            string input = Console.ReadLine();
+            string input = this.input.ReadLine();
             if (input == "Q") return true;
-            return false;
+            return false; */
         }
     }
 }

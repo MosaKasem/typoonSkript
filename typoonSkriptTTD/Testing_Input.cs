@@ -38,7 +38,10 @@ namespace typoonSkriptTTD
         public void Exit_Method_Should_Return_True_On_String_Q()
         {
             SetUpMockObjects();
-            // var input = new Input();
+            mock_fakeConsole = new Mock<IConsole>();
+            mock_fakeConsole.Setup(s => s.ReadLine()).Returns("Q");
+            var input = new Input(mock_fakeConsole.Object);
+            Assert.Equal(false, input.Exit());
         }
     }
 }
