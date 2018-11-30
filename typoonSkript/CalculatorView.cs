@@ -15,8 +15,7 @@ namespace Domain
         }
         public Operation GetInput()
         {
-            return Operation.divide;
-/*             string x = this._console.ReadLine();
+            string x = this._console.ReadLine();
             switch (x.ToCharArray()[0])
             {
                 case '+':
@@ -29,7 +28,7 @@ namespace Domain
                     return Operation.divide;
                 default:
                     return Operation.Null;
-            }  */
+            } 
         }
         public virtual void PresentResult(double presentValue)
         {
