@@ -1,4 +1,8 @@
 using System;
+using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Domain
 {
@@ -11,7 +15,8 @@ namespace Domain
         }
         public Operation GetInput()
         {
-            string x = this._console.ReadLine();
+                throw new Exception();
+/*             string x = this._console.ReadLine();
             switch (x.ToCharArray()[0])
             {
                 case '+':
@@ -24,7 +29,7 @@ namespace Domain
                     return Operation.divide;
                 default:
                     return Operation.Null;
-            }
+            } */
         }
         public virtual void PresentResult(double presentValue)
         {
@@ -36,7 +41,7 @@ namespace Domain
             return UserInput(this._console.ReadLine());
         }
 
-        private double UserInput(string input)
+        public virtual double UserInput(string input)
         {
             if (!double.TryParse(input, out double convertedNumber)) throw new ArgumentException("Must be a numeric value");
             return convertedNumber;

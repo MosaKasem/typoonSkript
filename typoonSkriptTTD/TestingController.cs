@@ -35,18 +35,10 @@ namespace typoonSkriptTTD
             mock_c = new Mock<Calculator>(mock_cv.Object);
             mock_i = new Mock<Input>();
         }
-        /*         public class ConsoleTestClass
-                {
-                    private readonly string _console;
-                    public ConsoleTestClass(string console)
-                    {
-                        this._console = console;
-                    }
-                    public string ReadLine()
-                    {
-                        return this._console;
-                    }
-                } */
+
+
+        /* Assert.IsType Test */
+
         [Fact]
         public void Test_Correct_Type_Of_Calculator()
         {
@@ -76,14 +68,41 @@ namespace typoonSkriptTTD
             var calcview = new CalculatorView(mock_fakeConsole.Object);
             Assert.IsType<CalculatorView>(calcview);
         }
+
+        /* Assert.IsType Test */
+
+
+
+        /*         [Fact] // Crashar.
+                public void Verify_ReturnValue_Presents_And_Calls_UserInput()
+                {
+                    // Fråga om denna.
+                    SetUpMockObjects();
+                    var fakeC = new FakeConsole("2");
+                    var calcV = new CalculatorView(fakeC);
+                    calcV.ReturnValue("question");
+                    mock_fakeConsole.Setup(s => s.WriteLine("question"));
+                    mock_cv.Setup(s => s.UserInput("2"));
+                    mock_cv.Verify(s => s.UserInput(It.IsAny<string>()), Times.AtLeastOnce());
+                } */
         [Fact]
-        public void Return_Correct_Operation_Based_On_Argument()
+        public void GetInput_Should_Return_PlusEnum_On_StringPlus()
         {
             mock_fakeConsole = new Mock<IConsole>();
             mock_fakeConsole.Setup(s => s.ReadLine()).Returns("+");
             var calcView = new CalculatorView(mock_fakeConsole.Object);
             var actual = calcView.GetInput();
             Operation expected = Operation.plus;
+            Assert.Equal(expected, actual);
+        }
+                [Fact]
+        public void GetInput_Should_Return_MinusEnum_On_StringMinus()
+        {
+            mock_fakeConsole = new Mock<IConsole>();
+            mock_fakeConsole.Setup(s => s.ReadLine()).Returns("-");
+            var calcView = new CalculatorView(mock_fakeConsole.Object);
+            var actual = calcView.GetInput();
+            Operation expected = Operation.minus;
             Assert.Equal(expected, actual);
         }
         [Fact]
@@ -95,27 +114,27 @@ namespace typoonSkriptTTD
             mock_cv.Setup(calcView => calcView.PresentResult(25));
             mock_cv.Verify(calcV => calcV.PresentResult(It.IsAny<double>()), Times.AtLeastOnce());
         }
-        [Fact]
-        public void Verify_Add_Was_Run_Inside_SimpleCalculator()
-        {
-            // Fråga: Verify Add was run, funkar ej!
-            SetUpMockObjects();
-            var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
-            calculator.SimpleCalculator(25.0, 25.0, Operation.plus);
-            mock_c.Setup(calc => calc.Add(It.IsAny<double>(), It.IsAny<double>()));
-            mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
-        }
-/*         [Fact]
-        public void Verify_Subtract_Was_Run_Inside_SimpleCalculator()
-        {
-            SetUpMockObjects();
-            var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
-            // var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
-            // calculator.SimpleCalculator(50, 25, Operation.minus);
-            mock_c.Setup(s => s.SimpleCalculator(25, 25, Operation.minus));
-            mock_c.Verify(mock => mock.SimpleCalculator(It.IsAny<double>(), It.IsAny<double>(), It.IsAny<Operation>()), Times.AtLeastOnce());
-            mock_c.Verify(sa => sa.IsEligable(Operation.minus), Times.AtLeastOnce());
-        }  */
+        /*         [Fact]
+                public void Verify_Add_Was_Run_Inside_SimpleCalculator()
+                {
+                    // Fråga: Verify Add was run, funkar ej!
+                    SetUpMockObjects();
+                    var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+                    calculator.SimpleCalculator(25.0, 25.0, Operation.plus);
+                    mock_c.Setup(calc => calc.Add(It.IsAny<double>(), It.IsAny<double>()));
+                    mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
+                } */
+        /*         [Fact]
+                public void Verify_Subtract_Was_Run_Inside_SimpleCalculator()
+                {
+                    SetUpMockObjects();
+                    var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+                    // var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+                    // calculator.SimpleCalculator(50, 25, Operation.minus);
+                    mock_c.Setup(s => s.SimpleCalculator(25, 25, Operation.minus));
+                    mock_c.Verify(mock => mock.SimpleCalculator(It.IsAny<double>(), It.IsAny<double>(), It.IsAny<Operation>()), Times.AtLeastOnce());
+                    mock_c.Verify(sa => sa.IsEligable(Operation.minus), Times.AtLeastOnce());
+                }  */
         [Fact]
         public void isEligable_Should_Return_True_On_Minus()
         {
