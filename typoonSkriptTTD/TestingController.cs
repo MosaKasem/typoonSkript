@@ -86,32 +86,36 @@ namespace typoonSkriptTTD
             Operation expected = Operation.plus;
             Assert.Equal(expected, actual);
         }
-/*         [Fact]
+        [Fact]
+        public void Verify_PresentResult_WasRun_In_SimpleCalculator_Add()
+        {
+            SetUpMockObjects();
+            var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+            calculator.SimpleCalculator(25.5, 25.5, Operation.plus);
+            mock_cv.Setup(calcView => calcView.PresentResult(25));
+            mock_cv.Verify(calcV => calcV.PresentResult(It.IsAny<double>()), Times.AtLeastOnce());
+        }
+        [Fact]
         public void Verify_Add_Was_Run_Inside_SimpleCalculator()
         {
             // Fråga: Verify Add was run, funkar ej!
             SetUpMockObjects();
-            mock_c.Setup(m => m.Add(It.IsAny<double>(), It.IsAny<double>()));
-            mock_c.Setup(m => m.Add(25.0, 25.0));
             var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             calculator.SimpleCalculator(25.0, 25.0, Operation.plus);
+            mock_c.Setup(calc => calc.Add(It.IsAny<double>(), It.IsAny<double>()));
             mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
-        } */
-        [Fact]
+        }
+/*         [Fact]
         public void Verify_Subtract_Was_Run_Inside_SimpleCalculator()
         {
             SetUpMockObjects();
-            // mock_c.Setup(a => a.Subtract(It.IsAny<double>(), It.IsAny<double>()));
-            // mock_c.Setup(s => s.SimpleCalculator(It.IsAny<double>(), It.IsAny<double>(), It.IsAny<Operation>()));
-            var fakeconsole = new FakeConsole("");
-            var calcView = new CalculatorView(fakeconsole);
-            var calculator = new Calculator(fakeconsole, calcView);
+            var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             // var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             // calculator.SimpleCalculator(50, 25, Operation.minus);
             mock_c.Setup(s => s.SimpleCalculator(25, 25, Operation.minus));
             mock_c.Verify(mock => mock.SimpleCalculator(It.IsAny<double>(), It.IsAny<double>(), It.IsAny<Operation>()), Times.AtLeastOnce());
             mock_c.Verify(sa => sa.IsEligable(Operation.minus), Times.AtLeastOnce());
-        } 
+        }  */
         [Fact]
         public void isEligable_Should_Return_True_On_Minus()
         {

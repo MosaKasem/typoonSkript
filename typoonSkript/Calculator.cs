@@ -17,7 +17,8 @@ namespace Domain
         }
         public bool IsEligable(Operation op)
         {
-            // A bug encountered // cannot solve.
+            // TODO: 1 test left
+            // Undecided whether I have use for this (yet)
             if (op == Operation.plus || op == Operation.minus || op == Operation.divide || op == Operation.multiply)
             {
                 return true;

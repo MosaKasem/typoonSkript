@@ -26,7 +26,7 @@ namespace Domain
                     return Operation.Null;
             }
         }
-        public void PresentResult(double presentValue)
+        public virtual void PresentResult(double presentValue)
         {
             Console.WriteLine(presentValue);
         }
