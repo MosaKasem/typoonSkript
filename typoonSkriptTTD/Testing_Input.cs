@@ -53,7 +53,7 @@ namespace typoonSkriptTTD
             Assert.Equal(false, input.Exit());
         }
         [Fact]
-                public void MakeSureItsRun_Verify()
+        public void MakeSureItsRun_Verify()
         {
             SetUpMockObjects();
             mock_i.Setup(s => s.Exit()).Returns(true);

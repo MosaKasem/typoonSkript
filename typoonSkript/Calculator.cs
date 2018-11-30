@@ -62,11 +62,11 @@ namespace Domain
         {
             return x - y;
         }
-        public double Multiply(double x, double y)
+        public virtual double Multiply(double x, double y)
         {
             return x * y;
         }
-        public double Divide(double x, double y)
+        public virtual double Divide(double x, double y)
         {
             if (y != 0)
             {

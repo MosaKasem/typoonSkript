@@ -186,8 +186,24 @@ namespace typoonSkriptTTD
         {
             SetUpMockObjects();
             mock_calculator.Setup(a => a.Subtract(25, 25)).Returns(0);
-            mock_calculator.Object.Add(25, 25);
-            mock_calculator.Verify(mock => mock.Add(25, 25), Times.AtLeastOnce());
+            mock_calculator.Object.Subtract(25, 25);
+            mock_calculator.Verify(mock => mock.Subtract(25, 25), Times.AtLeastOnce());
+        }
+        [Fact]
+        public void Verify_Divide_Was_Run()
+        {
+            SetUpMockObjects();
+            mock_calculator.Setup(a => a.Divide(25, 0)).Returns(0);
+            mock_calculator.Object.Divide(25, 0);
+            mock_calculator.Verify(mock => mock.Divide(25, 0), Times.AtLeastOnce());
+        }
+        [Fact]
+        public void Verify_Multiply_Was_Run()
+        {
+            SetUpMockObjects();
+            mock_calculator.Setup(a => a.Multiply(25, 0)).Returns(0);
+            mock_calculator.Object.Multiply(25, 0);
+            mock_calculator.Verify(mock => mock.Multiply(25, 0), Times.AtLeastOnce());
         }
 
         [Fact]
