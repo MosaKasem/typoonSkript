@@ -15,21 +15,20 @@ namespace Domain
         }
         public Operation GetInput()
         {
-                return Operation.minus; 
-/*             string x = this._console.ReadLine();
+            string x = this._console.ReadLine();
             switch (x.ToCharArray()[0])
             {
                 case '+':
                     return Operation.plus;
                 case '-':
                     return Operation.minus;
-                case '*':
+ /*                case '*':
                     return Operation.multiply;
                 case '/':
                     return Operation.divide;
-                default:
+               */ default:
                     return Operation.Null;
-            } */
+            } 
         }
         public virtual void PresentResult(double presentValue)
         {
