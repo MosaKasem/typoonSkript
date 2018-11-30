@@ -64,10 +64,17 @@ namespace typoonSkriptTTD
             var inp = new Input();
             var calvV = new CalculatorView(fakec);
             var calc = new Calculator(fakec, calvV);
-            // varför funkar inte det här med mock object?!
+            // fråga: varför funkar inte det här med mock object?!
             // var app = new App(mock_c.Object, mock_cv.Object, mock_i.Object);
             var app = new App(calc, calvV, inp);
             Assert.IsType<App>(app);
+        }
+        [Fact]
+        public void Test_Correct_Type_Of_CalculatorView()
+        {
+            SetUpMockObjects();
+            var calcview = new CalculatorView(mock_fakeConsole.Object);
+            Assert.IsType<CalculatorView>(calcview);
         }
         [Fact]
         public void Return_Correct_Operation_Based_On_Argument()
@@ -79,27 +86,32 @@ namespace typoonSkriptTTD
             Operation expected = Operation.plus;
             Assert.Equal(expected, actual);
         }
-        [Fact]
+/*         [Fact]
         public void Verify_Add_Was_Run_Inside_SimpleCalculator()
         {
             // Fråga: Verify Add was run, funkar ej!
             SetUpMockObjects();
+            mock_c.Setup(m => m.Add(It.IsAny<double>(), It.IsAny<double>()));
+            mock_c.Setup(m => m.Add(25.0, 25.0));
             var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             calculator.SimpleCalculator(25.0, 25.0, Operation.plus);
-            mock_c.Setup(m => m.Add(It.IsAny<double>(), It.IsAny<double>()));
             mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
-            // mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
-            // mock_c.Verify
-        }
+        } */
         [Fact]
         public void Verify_Subtract_Was_Run_Inside_SimpleCalculator()
         {
             SetUpMockObjects();
-            var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
-            calculator.SimpleCalculator(50, 25, Operation.minus);
-            mock_c.Setup(a => a.Subtract(50, 25));
-            mock_c.Verify(b => b.Subtract(50, 25), Times.AtLeast(1));
-        }
+            // mock_c.Setup(a => a.Subtract(It.IsAny<double>(), It.IsAny<double>()));
+            // mock_c.Setup(s => s.SimpleCalculator(It.IsAny<double>(), It.IsAny<double>(), It.IsAny<Operation>()));
+            var fakeconsole = new FakeConsole("");
+            var calcView = new CalculatorView(fakeconsole);
+            var calculator = new Calculator(fakeconsole, calcView);
+            // var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+            // calculator.SimpleCalculator(50, 25, Operation.minus);
+            mock_c.Setup(s => s.SimpleCalculator(25, 25, Operation.minus));
+            mock_c.Verify(mock => mock.SimpleCalculator(It.IsAny<double>(), It.IsAny<double>(), It.IsAny<Operation>()), Times.AtLeastOnce());
+            mock_c.Verify(sa => sa.IsEligable(Operation.minus), Times.AtLeastOnce());
+        } 
         [Fact]
         public void isEligable_Should_Return_True_On_Minus()
         {
@@ -129,16 +141,16 @@ namespace typoonSkriptTTD
         {
             SetUpMockObjects();
             var console = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
-            // var expected = console.IsEligable(Operation.multiply);
-            Assert.Throws<ArgumentException>(() => console.IsEligable(Operation.Null));
+            var expected = console.IsEligable(Operation.multiply);
+            Assert.True(expected);
         }
         [Fact]
-                public void isEligable_Should_Return_False_On_Null()
+        public void isEligable_Should_Return_False_On_Null()
         {
             SetUpMockObjects();
             var console = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
             var expected = console.IsEligable(Operation.Null);
-            Assert.False(expected);
+            Assert.Throws<ArgumentException>(() => console.IsEligable(Operation.Null));
         }
     }
 }

@@ -1,8 +1,4 @@
 using System;
-using System.Linq;
-using System.Collections;
-using System;
-using System.Collections.Generic;
 
 namespace Domain
 {
@@ -19,20 +15,20 @@ namespace Domain
             this._console = console;
             this.cView = cView;
         }
-        public bool IsEligable(Operation op)
+/*         public bool IsEligable(Operation op)
         {
+            // A bug encountered // cannot solve.
             if (op == Operation.plus || op == Operation.minus || op == Operation.divide || op == Operation.multiply)
             {
                 return true;
             }
             else
             {
-                throw new ArgumentException("Invalid Operation!");
+                return false;
             }
-        }
-        public void SimpleCalculator(double x, double y, Operation o)
-        {
-            // IsEligable(o);
+        } */
+        public virtual void SimpleCalculator(double x, double y, Operation o)
+        {  
             double result;
             switch (o)
             {
@@ -41,19 +37,19 @@ namespace Domain
                     this.cView.PresentResult(result);
                     break;
                 case Operation.minus:
-                    Subtract(x, y);
+                    result = Subtract(x, y);
+                    this.cView.PresentResult(result);
                     break;
-                    /*                    result = Subtract(x, y);
-                                        this.cView.PresentResult(result);
-                                        break;
-                                    case Operation.multiply:
-                                        result = Multiply(x, y);
-                                        this.cView.PresentResult(result);
-                                        break;
-                                    case Operation.divide:
-                                        result = Divide(x, y);
-                                        this.cView.PresentResult(result);
-                                        break; */
+                case Operation.multiply:
+                    result = Multiply(x, y);
+                    this.cView.PresentResult(result);
+                    break;
+                case Operation.divide:
+                    result = Divide(x, y);
+                    this.cView.PresentResult(result);
+                    break;
+                case Operation.Null:
+                    throw new Exception("Invalid Operation");    
             }
         }
         public virtual double Add(double x, double y)
