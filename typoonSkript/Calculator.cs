@@ -29,7 +29,8 @@ namespace Domain
             }
         }
         public virtual void SimpleCalculator(double x, double y, Operation o)
-        {  
+        {
+            // Gick inte att testa.
             double result;
             switch (o)
             {

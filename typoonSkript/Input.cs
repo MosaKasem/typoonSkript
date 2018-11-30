@@ -2,8 +2,13 @@ using System;
 
 namespace Domain
 {
-    public class Input
+    public class Input : ConsoleWrapper
     {
+        private IConsole input;
+        public Input(IConsole msg)
+        {
+            this.input = msg;
+        }
         public bool Exit()
         {
             Console.WriteLine("---------------Q to Quit----------------");

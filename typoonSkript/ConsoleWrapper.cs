@@ -13,12 +13,12 @@ namespace Domain
     }
     public class ConsoleWrapper : IConsole
     {
-        public string ReadLine()
+        public virtual string ReadLine()
         {
             return Console.ReadLine();
         }
         
-        public void WriteLine(string msg)
+        public virtual void WriteLine(string msg)
         {
             Console.WriteLine(msg);
         }

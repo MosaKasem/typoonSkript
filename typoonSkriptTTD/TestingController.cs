@@ -25,15 +25,15 @@ namespace typoonSkriptTTD
             }
         }
         private Mock<IConsole> mock_fakeConsole;
-        private Mock<Calculator> mock_c;
+        private Mock<Calculator> mock_calculator;
         private Mock<CalculatorView> mock_cv;
         private Mock<Input> mock_i;
         public void SetUpMockObjects()
         {
             mock_fakeConsole = new Mock<IConsole>();
             mock_cv = new Mock<CalculatorView>(mock_fakeConsole.Object);
-            mock_c = new Mock<Calculator>(mock_cv.Object);
-            mock_i = new Mock<Input>();
+            mock_calculator = new Mock<Calculator>(mock_fakeConsole.Object, mock_cv.Object);
+            mock_i = new Mock<Input>(mock_fakeConsole.Object);
         }
 
 
@@ -53,7 +53,7 @@ namespace typoonSkriptTTD
         {
             SetUpMockObjects();
             var fakec = new FakeConsole("");
-            var inp = new Input();
+            var inp = new Input(fakec);
             var calvV = new CalculatorView(fakec);
             var calc = new Calculator(fakec, calvV);
             // fråga: varför funkar inte det här med mock object?!
@@ -152,27 +152,35 @@ namespace typoonSkriptTTD
             mock_cv.Setup(calcView => calcView.PresentResult(25));
             mock_cv.Verify(calcV => calcV.PresentResult(It.IsAny<double>()), Times.AtLeastOnce());
         }
-        /*         [Fact]
+ /*        [Fact]
+        public void Verify_Add_Was_Run_Inside_SimpleCalculator()
+        {
+            SetUpMockObjects();
+            var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+            calculator.SimpleCalculator(25.0, 25.0, Operation.plus);
+            var o = mock_c.Object;
+
+            mock_c.Setup(calc => calc.Add(It.IsAny<double>(), It.IsAny<double>()));
+            mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
+        } */
+                [Fact]
                 public void Verify_Add_Was_Run_Inside_SimpleCalculator()
                 {
-                    // Fråga: Verify Add was run, funkar ej!
                     SetUpMockObjects();
-                    var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
-                    calculator.SimpleCalculator(25.0, 25.0, Operation.plus);
-                    mock_c.Setup(calc => calc.Add(It.IsAny<double>(), It.IsAny<double>()));
-                    mock_c.Verify(m => m.Add(It.IsAny<double>(), It.IsAny<double>()), Times.AtLeastOnce());
-                } */
-        /*         [Fact]
-                public void Verify_Subtract_Was_Run_Inside_SimpleCalculator()
-                {
-                    SetUpMockObjects();
-                    var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
+/*                     var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object); */
                     // var calculator = new Calculator(mock_fakeConsole.Object, mock_cv.Object);
                     // calculator.SimpleCalculator(50, 25, Operation.minus);
-                    mock_c.Setup(s => s.SimpleCalculator(25, 25, Operation.minus));
-                    mock_c.Verify(mock => mock.SimpleCalculator(It.IsAny<double>(), It.IsAny<double>(), It.IsAny<Operation>()), Times.AtLeastOnce());
-                    mock_c.Verify(sa => sa.IsEligable(Operation.minus), Times.AtLeastOnce());
-                }  */
+                    // mock_calculator.Setup(s => s.SimpleCalculator(25, 25, Operation.minus));
+                    // var fakemockForCalc = Mock<Calculator>();
+
+                    
+                    mock_calculator.Setup(a => a.Add(25, 25)).Returns(50);
+                    
+                    mock_calculator.Object.SimpleCalculator(25, 25, Operation.plus);
+                    // mock_calculator.Object.Add(25, 25);
+                    mock_calculator.Verify(mock => mock.Add(25, 25), Times.AtLeastOnce());
+                   // mock_calculator.Verify(sa => sa.IsEligable(Operation.minus), Times.AtLeastOnce());
+                } 
         [Fact]
         public void isEligable_Should_Return_True_On_Minus()
         {

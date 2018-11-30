@@ -14,7 +14,7 @@ namespace Domain
             var w = new ConsoleWrapper();
             var v = new CalculatorView(w);
             var c = new Calculator(w , v);
-            var i = new Input();
+            var i = new Input(w);
             App app = new App(c, v, i);
             try
             {
